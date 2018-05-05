@@ -1,0 +1,1102 @@
+<!DOCTYPE html>
+<html style="display: none;" lang="zh">
+    <head>
+    <meta charset="utf-8">
+    <!--
+        © Material Theme
+        https://github.com/viosey/hexo-theme-material
+        Version: 1.5.2 -->
+    <script>
+        window.materialVersion = "1.5.2"
+        // Delete localstorage with these tags
+        window.oldVersion = [
+            'codestartv1',
+            '1.3.4',
+            '1.4.0',
+            '1.4.0b1',
+            '1.5.0'
+        ]
+    </script>
+
+    <!-- dns prefetch -->
+    <meta http-equiv="x-dns-prefetch-control" content="on">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <!-- Meta & Info -->
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <meta name="renderer" content="webkit">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+
+    <!-- Title -->
+    
+    <title>
+        
+            CocoaPods基础 | 
+        
+        Gene&#39;s博客
+    </title>
+
+    <!-- Favicons -->
+    <link rel="icon shortcut" type="image/ico" href="/img/favicon.png">
+    <link rel="icon" href="/img/favicon.png">
+
+    <meta name="format-detection" content="telephone=no"/>
+    <meta name="description" itemprop="description" content="iOS开发CocoaPods相关知识整理">
+    <meta name="keywords" content=",cocoapods">
+    <meta name="theme-color" content="#0097A7">
+
+    <!-- Disable Fucking Bloody Baidu Tranformation -->
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta http-equiv="Cache-Control" content="no-siteapp" />
+
+    <!--[if lte IE 9]>
+        <link rel="stylesheet" href="/css/ie-blocker.css">
+
+        
+            <script src="/js/ie-blocker.zhCN.js"></script>
+        
+    <![endif]-->
+
+    <!-- Import lsloader -->
+    <script>(function(){window.lsloader={jsRunSequence:[],jsnamemap:{},cssnamemap:{}};lsloader.removeLS=function(a){try{localStorage.removeItem(a)}catch(b){}};lsloader.setLS=function(a,c){try{localStorage.setItem(a,c)}catch(b){}};lsloader.getLS=function(a){var c="";try{c=localStorage.getItem(a)}catch(b){c=""}return c};versionString="/*"+(window.materialVersion||"unknownVersion")+"*/";lsloader.clean=function(){try{var b=[];for(var a=0;a<localStorage.length;a++){b.push(localStorage.key(a))}b.forEach(function(e){var f=lsloader.getLS(e);if(window.oldVersion){var d=window.oldVersion.reduce(function(g,h){return g||f.indexOf("/*"+h+"*/")!==-1},false);if(d){lsloader.removeLS(e)}}})}catch(c){}};lsloader.clean();lsloader.load=function(f,a,b,d){if(typeof b==="boolean"){d=b;b=undefined}d=d||false;b=b||function(){};var e;e=this.getLS(f);if(e&&e.indexOf(versionString)===-1){this.removeLS(f);this.requestResource(f,a,b,d);return}if(e){var c=e.split(versionString)[0];if(c!=a){console.log("reload:"+a);this.removeLS(f);this.requestResource(f,a,b,d);return}e=e.split(versionString)[1];if(d){this.jsRunSequence.push({name:f,code:e});this.runjs(a,f,e)}else{document.getElementById(f).appendChild(document.createTextNode(e));b()}}else{this.requestResource(f,a,b,d)}};lsloader.requestResource=function(b,e,a,c){var d=this;if(c){this.iojs(e,b,function(h,f,g){d.setLS(f,h+versionString+g);d.runjs(h,f,g)})}else{this.iocss(e,b,function(f){document.getElementById(b).appendChild(document.createTextNode(f));d.setLS(b,e+versionString+f)},a)}};lsloader.iojs=function(d,b,g){var a=this;a.jsRunSequence.push({name:b,code:""});try{var f=new XMLHttpRequest();f.open("get",d,true);f.onreadystatechange=function(){if(f.readyState==4){if((f.status>=200&&f.status<300)||f.status==304){if(f.response!=""){g(d,b,f.response);return}}a.jsfallback(d,b)}};f.send(null)}catch(c){a.jsfallback(d,b)}};lsloader.iocss=function(f,c,h,a){var b=this;try{var g=new XMLHttpRequest();g.open("get",f,true);g.onreadystatechange=function(){if(g.readyState==4){if((g.status>=200&&g.status<300)||g.status==304){if(g.response!=""){h(g.response);a();return}}b.cssfallback(f,c,a)}};g.send(null)}catch(d){b.cssfallback(f,c,a)}};lsloader.iofonts=function(f,c,h,a){var b=this;try{var g=new XMLHttpRequest();g.open("get",f,true);g.onreadystatechange=function(){if(g.readyState==4){if((g.status>=200&&g.status<300)||g.status==304){if(g.response!=""){h(g.response);a();return}}b.cssfallback(f,c,a)}};g.send(null)}catch(d){b.cssfallback(f,c,a)}};lsloader.runjs=function(f,c,e){if(!!c&&!!e){for(var b in this.jsRunSequence){if(this.jsRunSequence[b].name==c){this.jsRunSequence[b].code=e}}}if(!!this.jsRunSequence[0]&&!!this.jsRunSequence[0].code&&this.jsRunSequence[0].status!="failed"){var a=document.createElement("script");a.appendChild(document.createTextNode(this.jsRunSequence[0].code));a.type="text/javascript";document.getElementsByTagName("head")[0].appendChild(a);this.jsRunSequence.shift();if(this.jsRunSequence.length>0){this.runjs()}}else{if(!!this.jsRunSequence[0]&&this.jsRunSequence[0].status=="failed"){var d=this;var a=document.createElement("script");a.src=this.jsRunSequence[0].path;a.type="text/javascript";this.jsRunSequence[0].status="loading";a.onload=function(){d.jsRunSequence.shift();if(d.jsRunSequence.length>0){d.runjs()}};document.body.appendChild(a)}}};lsloader.tagLoad=function(b,a){this.jsRunSequence.push({name:a,code:"",path:b,status:"failed"});this.runjs()};lsloader.jsfallback=function(c,b){if(!!this.jsnamemap[b]){return}else{this.jsnamemap[b]=b}for(var a in this.jsRunSequence){if(this.jsRunSequence[a].name==b){this.jsRunSequence[a].code="";this.jsRunSequence[a].status="failed";this.jsRunSequence[a].path=c}}this.runjs()};lsloader.cssfallback=function(e,c,b){if(!!this.cssnamemap[c]){return}else{this.cssnamemap[c]=1}var d=document.createElement("link");d.type="text/css";d.href=e;d.rel="stylesheet";d.onload=d.onerror=b;var a=document.getElementsByTagName("script")[0];a.parentNode.insertBefore(d,a)};lsloader.runInlineScript=function(c,b){var a=document.getElementById(b).innerText;this.jsRunSequence.push({name:c,code:a});this.runjs()}})();</script>
+
+    <!-- Import queue -->
+    <script>function Queue(){this.dataStore=[];this.offer=b;this.poll=d;this.execNext=a;this.debug=false;this.startDebug=c;function b(e){if(this.debug){console.log("Offered a Queued Function.")}if(typeof e==="function"){this.dataStore.push(e)}else{console.log("You must offer a function.")}}function d(){if(this.debug){console.log("Polled a Queued Function.")}return this.dataStore.shift()}function a(){var e=this.poll();if(e!==undefined){if(this.debug){console.log("Run a Queued Function.")}e()}}function c(){this.debug=true}}var queue=new Queue();</script>
+
+    <!-- Import CSS -->
+    
+        <style id="material_css"></style><script>if(typeof window.lsLoadCSSMaxNums === "undefined")window.lsLoadCSSMaxNums = 0;window.lsLoadCSSMaxNums++;lsloader.load("material_css","/css/material.min.css?Z7a72R1E4SxzBKR/WGctOA==",function(){if(typeof window.lsLoadCSSNums === "undefined")window.lsLoadCSSNums = 0;window.lsLoadCSSNums++;if(window.lsLoadCSSNums == window.lsLoadCSSMaxNums)document.documentElement.style.display="";}, false)</script>
+        <style id="style_css"></style><script>if(typeof window.lsLoadCSSMaxNums === "undefined")window.lsLoadCSSMaxNums = 0;window.lsLoadCSSMaxNums++;lsloader.load("style_css","/css/style.min.css?MKetZV3cUTfDxvMffaOezg==",function(){if(typeof window.lsLoadCSSNums === "undefined")window.lsLoadCSSNums = 0;window.lsLoadCSSNums++;if(window.lsLoadCSSNums == window.lsLoadCSSMaxNums)document.documentElement.style.display="";}, false)</script>
+
+        
+            
+                <style id="prettify_css"></style><script>if(typeof window.lsLoadCSSMaxNums === "undefined")window.lsLoadCSSMaxNums = 0;window.lsLoadCSSMaxNums++;lsloader.load("prettify_css","/css/prettify.min.css?zp8STOU9v89XWFEnN+6YmQ==",function(){if(typeof window.lsLoadCSSNums === "undefined")window.lsLoadCSSNums = 0;window.lsLoadCSSNums++;if(window.lsLoadCSSNums == window.lsLoadCSSMaxNums)document.documentElement.style.display="";}, false)</script>
+                <style id="prettify_theme"></style><script>if(typeof window.lsLoadCSSMaxNums === "undefined")window.lsLoadCSSMaxNums = 0;window.lsLoadCSSMaxNums++;lsloader.load("prettify_theme","/css/prettify/github-v2.min.css?AfzKxt++K+/lhZBlSjnxwg==",function(){if(typeof window.lsLoadCSSNums === "undefined")window.lsLoadCSSNums = 0;window.lsLoadCSSNums++;if(window.lsLoadCSSNums == window.lsLoadCSSMaxNums)document.documentElement.style.display="";}, false)</script>
+            
+        
+
+    
+
+    
+
+    <!-- Config CSS -->
+
+<!-- Other Styles -->
+<style>
+  body, html {
+    font-family: Roboto, "Helvetica Neue", Helvetica, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "微软雅黑", Arial, sans-serif;
+    overflow-x: hidden !important;
+  }
+  
+  code {
+    font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+  }
+
+  a {
+    color: #00838F;
+  }
+
+  .mdl-card__media,
+  #search-label,
+  #search-form-label:after,
+  #scheme-Paradox .hot_tags-count,
+  #scheme-Paradox .sidebar_archives-count,
+  #scheme-Paradox .sidebar-colored .sidebar-header,
+  #scheme-Paradox .sidebar-colored .sidebar-badge{
+    background-color: #0097A7 !important;
+  }
+
+  /* Sidebar User Drop Down Menu Text Color */
+  #scheme-Paradox .sidebar-colored .sidebar-nav>.dropdown>.dropdown-menu>li>a:hover,
+  #scheme-Paradox .sidebar-colored .sidebar-nav>.dropdown>.dropdown-menu>li>a:focus {
+    color: #0097A7 !important;
+  }
+
+  #post_entry-right-info,
+  .sidebar-colored .sidebar-nav li:hover > a,
+  .sidebar-colored .sidebar-nav li:hover > a i,
+  .sidebar-colored .sidebar-nav li > a:hover,
+  .sidebar-colored .sidebar-nav li > a:hover i,
+  .sidebar-colored .sidebar-nav li > a:focus i,
+  .sidebar-colored .sidebar-nav > .open > a,
+  .sidebar-colored .sidebar-nav > .open > a:hover,
+  .sidebar-colored .sidebar-nav > .open > a:focus,
+  #ds-reset #ds-ctx .ds-ctx-entry .ds-ctx-head a {
+    color: #0097A7 !important;
+  }
+
+  .toTop {
+    background: #757575 !important;
+  }
+
+  .material-layout .material-post>.material-nav,
+  .material-layout .material-index>.material-nav,
+  .material-nav a {
+    color: #757575;
+  }
+
+  #scheme-Paradox .MD-burger-layer {
+    background-color: #757575;
+  }
+
+  #scheme-Paradox #post-toc-trigger-btn {
+    color: #757575;
+  }
+
+  .post-toc a:hover {
+    color: #00838F;
+    text-decoration: underline;
+  }
+
+</style>
+
+
+<!-- Theme Background Related-->
+
+    <style>
+      body{
+        background-image: url(/img/bg.png);
+      }
+    </style>
+
+
+
+
+<!-- Fade Effect -->
+
+    <style>
+      .fade {
+        transition: all 800ms linear;
+        -webkit-transform: translate3d(0,0,0);
+        -moz-transform: translate3d(0,0,0);
+        -ms-transform: translate3d(0,0,0);
+        -o-transform: translate3d(0,0,0);
+        transform: translate3d(0,0,0);
+        opacity: 1;
+      }
+
+      .fade.out{
+        opacity: 0;
+      }
+    </style>
+
+
+<!-- Import Font -->
+<!-- Import Roboto -->
+
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500" rel="stylesheet">
+
+
+<!-- Import Material Icons -->
+
+
+    <style id="material_icons"></style><script>if(typeof window.lsLoadCSSMaxNums === "undefined")window.lsLoadCSSMaxNums = 0;window.lsLoadCSSMaxNums++;lsloader.load("material_icons","/css/material-icons.css?pqhB/Rd/ab0H2+kZp0RDmw==",function(){if(typeof window.lsLoadCSSNums === "undefined")window.lsLoadCSSNums = 0;window.lsLoadCSSNums++;if(window.lsLoadCSSNums == window.lsLoadCSSMaxNums)document.documentElement.style.display="";}, false)</script>
+
+
+
+
+    <!-- Import jQuery -->
+    
+        <script>lsloader.load("jq_js","/js/jquery.min.js?qcusAULNeBksqffqUM2+Ig==", true)</script>
+    
+
+    <!-- WebAPP Icons -->
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="application-name" content="Gene&#39;s博客">
+    <meta name="msapplication-starturl" content="http://chojd.com/20150518/technology/ios_cocoapods_basic/">
+    <meta name="msapplication-navbutton-color" content="#0097A7">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-title" content="Gene&#39;s博客">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon" href="/img/favicon.png">
+
+    <!-- Site Verification -->
+    
+    
+
+    <!-- RSS -->
+    
+
+    <!-- The Open Graph protocol -->
+    <meta property="og:url" content="http://chojd.com/20150518/technology/ios_cocoapods_basic/">
+    <meta property="og:type" content="blog">
+    <meta property="og:title" content="CocoaPods基础 | Gene&#39;s博客">
+    <meta property="og:image" content="/img/favicon.png">
+    <meta property="og:description" content="iOS开发CocoaPods相关知识整理">
+    <meta property="og:article:tag" content="cocoapods"> 
+
+    
+        <meta property="article:published_time" content="Mon May 18 2015 00:00:00 GMT+0800">
+        <meta property="article:modified_time" content="Sat May 05 2018 17:02:01 GMT+0800">
+    
+
+    <!-- The Twitter Card protocol -->
+    <meta name="twitter:card" content="summary_large_image">
+
+    <!-- Add canonical link for SEO -->
+    
+        <link rel="canonical" href="http://chojd.com/20150518/technology/ios_cocoapods_basic/index.html" />
+    
+
+    <!-- Structured-data for SEO -->
+    
+        
+
+
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "mainEntityOfPage": "http://chojd.com/20150518/technology/ios_cocoapods_basic/index.html",
+    "headline": "CocoaPods基础",
+    "datePublished": "Mon May 18 2015 00:00:00 GMT+0800",
+    "dateModified": "Sat May 05 2018 17:02:01 GMT+0800",
+    "author": {
+        "@type": "Person",
+        "name": "Gene",
+        "image": {
+            "@type": "ImageObject",
+            "url": "/img/avatar.png"
+        },
+        "description": "Gene Cho 的博客。,记录所学，所思，所得。"
+    },
+    "publisher": {
+        "@type": "Organization",
+        "name": "Gene&#39;s博客",
+        "logo": {
+            "@type":"ImageObject",
+            "url": "/img/favicon.png"
+        }
+    },
+    "keywords": ",cocoapods",
+    "description": "iOS开发CocoaPods相关知识整理",
+}
+</script>
+
+
+    
+
+    <!-- Analytics -->
+    
+    
+    
+
+    <!-- Custom Head -->
+    
+
+</head>
+
+
+    
+        <body id="scheme-Paradox" class="lazy">
+            <div class="material-layout  mdl-js-layout has-drawer is-upgraded">
+                
+
+                <!-- Main Container -->
+                <main class="material-layout__content" id="main">
+
+                    <!-- Top Anchor -->
+                    <div id="top"></div>
+
+                    
+                        <!-- Hamburger Button -->
+                        <button class="MD-burger-icon sidebar-toggle">
+                            <span class="MD-burger-layer"></span>
+                        </button>
+                    
+
+                    <!-- Post TOC -->
+
+    
+    <!-- Back Button -->
+    <!--
+    <div class="material-back" id="backhome-div" tabindex="0">
+        <a class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon"
+           href="#" onclick="window.history.back();return false;"
+           target="_self"
+           role="button"
+           data-upgraded=",MaterialButton,MaterialRipple">
+            <i class="material-icons" role="presentation">arrow_back</i>
+            <span class="mdl-button__ripple-container">
+                <span class="mdl-ripple"></span>
+            </span>
+        </a>
+    </div>
+    -->
+
+
+    <!-- Left aligned menu below button -->
+    
+    
+    <button id="post-toc-trigger-btn"
+        class="mdl-button mdl-js-button mdl-button--icon">
+        <i class="material-icons">format_list_numbered</i>
+    </button>
+
+    <ul class="post-toc-wrap mdl-menu mdl-menu--bottom-left mdl-js-menu mdl-js-ripple-effect" for="post-toc-trigger-btn" style="max-height:80vh; overflow-y:scroll;">
+        <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#iOS开发CocoaPods相关知识整理"><span class="post-toc-text">iOS开发CocoaPods相关知识整理</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#快速导航"><span class="post-toc-text">快速导航</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#官网资源参考"><span class="post-toc-text">官网资源参考</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#CocoaPods安装"><span class="post-toc-text">CocoaPods安装</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#CocoaPods在项目中使用"><span class="post-toc-text">CocoaPods在项目中使用</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#常见错误"><span class="post-toc-text">常见错误</span></a></li></ol></li></ol></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#官网资源参考-1"><span class="post-toc-text">官网资源参考</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#CocoaPods安装（安装过程如果遇到问题，请查看常见错误）"><span class="post-toc-text">CocoaPods安装（安装过程如果遇到问题，请查看常见错误）</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#使用gem-ruby包管理工具-，安装CocoaPods"><span class="post-toc-text">使用gem(ruby包管理工具)，安装CocoaPods</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#查看gem源"><span class="post-toc-text">查看gem源</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#ruby默认源-https-rubygems-org-被墙，先修改下默认源"><span class="post-toc-text">ruby默认源(https://rubygems.org/)被墙，先修改下默认源</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#移除默认源"><span class="post-toc-text">移除默认源</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#使用新的ruby源-ruby源淘宝镜像"><span class="post-toc-text">使用新的ruby源 ruby源淘宝镜像</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#查看修改后的的源地址（请确保只有一个源地址）"><span class="post-toc-text">查看修改后的的源地址（请确保只有一个源地址）</span></a></li></ol></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#安装cocoapods-苹果系统升级OS-X-EL-Captian-安装命令需要修改-使用第二条命令"><span class="post-toc-text">安装cocoapods(苹果系统升级OS X EL Captian 安装命令需要修改,使用第二条命令)</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#CocoaPods在项目中使用-1"><span class="post-toc-text">CocoaPods在项目中使用</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#cd-到项目目录"><span class="post-toc-text">cd 到项目目录</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#新建CocoaPods初始化文件-工程目录会创建一个Podfile文件"><span class="post-toc-text">新建CocoaPods初始化文件,工程目录会创建一个Podfile文件</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Podfile文件用于编辑工程依赖，里面使用ruby语言"><span class="post-toc-text">Podfile文件用于编辑工程依赖，里面使用ruby语言</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#查询CocoaPods库-以AFNetwwoking为例"><span class="post-toc-text">查询CocoaPods库(以AFNetwwoking为例)</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#编辑Podfile文件，添加-pod-‘AFNetworking’-‘-gt-3-0-4’"><span class="post-toc-text">编辑Podfile文件，添加 pod ‘AFNetworking’, ‘~&gt; 3.0.4’</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#导入第三方库-pod-install-命令可能需要等待很久，需要下载一个很大的文件，建议翻墙加速"><span class="post-toc-text">导入第三方库(pod install 命令可能需要等待很久，需要下载一个很大的文件，建议翻墙加速)</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#使用新的方式打开工程-会生成CocoaPodsDemo-xcworkspace文件，点击打开工程"><span class="post-toc-text">使用新的方式打开工程(会生成CocoaPodsDemo.xcworkspace文件，点击打开工程)</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#构建CocoaPods"><span class="post-toc-text">构建CocoaPods</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#使用-Pod-Lib-Create-命令"><span class="post-toc-text">使用 Pod Lib Create 命令</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#错误1："><span class="post-toc-text">错误1：</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#错误2："><span class="post-toc-text">错误2：</span></a></li></ol></li></ol></li></ol>
+    </ul>
+    
+
+
+
+
+<!-- Layouts -->
+
+    <!-- Post Module -->
+    <div class="material-post_container">
+
+        <div class="material-post mdl-grid">
+            <div class="mdl-card mdl-shadow--4dp mdl-cell mdl-cell--12-col">
+
+                <!-- Post Header(Thumbnail & Title) -->
+                
+    <!-- Paradox Post Header -->
+    
+        
+            <!-- Random Thumbnail -->
+            <div class="post_thumbnail-random mdl-card__media mdl-color-text--grey-50">
+            <script type="text/ls-javascript" id="post-thumbnail-script">
+    var randomNum = Math.floor(Math.random() * 19 + 1);
+
+    $('.post_thumbnail-random').attr('data-original', '/img/random/material-' + randomNum + '.png');
+    $('.post_thumbnail-random').addClass('lazy');
+</script>
+
+        
+    
+            <p class="article-headline-p">
+                CocoaPods基础
+            </p>
+        </div>
+
+
+
+
+
+                
+                    <!-- Paradox Post Info -->
+                    <div class="mdl-color-text--grey-700 mdl-card__supporting-text meta">
+
+    <!-- Author Avatar -->
+    <div id="author-avatar">
+        <img src="/img/avatar.png" width="44px" height="44px" alt="Author Avatar"/>
+    </div>
+    <!-- Author Name & Date -->
+    <div>
+        <strong>Gene</strong>
+        <span>5月 18, 2015</span>
+    </div>
+
+    <div class="section-spacer"></div>
+
+    <!-- Favorite -->
+    <!--
+        <button id="article-functions-like-button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon btn-like">
+            <i class="material-icons" role="presentation">favorite</i>
+            <span class="visuallyhidden">favorites</span>
+        </button>
+    -->
+
+    <!-- Qrcode -->
+    
+
+    <!-- Tags (bookmark) -->
+    
+    <button id="article-functions-viewtags-button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
+        <i class="material-icons" role="presentation">bookmark</i>
+        <span class="visuallyhidden">bookmark</span>
+    </button>
+    <ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="article-functions-viewtags-button">
+        <li class="mdl-menu__item">
+        <a class="post_tag-link" href="/tags/cocoapods/">cocoapods</a>
+    </ul>
+    
+
+    <!-- Share -->
+    
+        <button id="article-fuctions-share-button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
+    <i class="material-icons" role="presentation">share</i>
+    <span class="visuallyhidden">share</span>
+</button>
+<ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="article-fuctions-share-button">
+    
+
+    
+
+    <!-- Share Weibo -->
+    
+        <a class="post_share-link" href="http://service.weibo.com/share/share.php?appkey=&title=CocoaPods基础&url=http://chojd.com/20150518/technology/ios_cocoapods_basic/index.html&pic=http://chojd.com/img/favicon.png&searchPic=false&style=simple" target="_blank">
+            <li class="mdl-menu__item">
+                分享到微博
+            </li>
+        </a>
+    
+
+    <!-- Share Twitter -->
+    
+        <a class="post_share-link" href="https://twitter.com/intent/tweet?text=CocoaPods基础&url=http://chojd.com/20150518/technology/ios_cocoapods_basic/index.html&via=Gene" target="_blank">
+            <li class="mdl-menu__item">
+                分享到 Twitter
+            </li>
+        </a>
+    
+
+    <!-- Share Facebook -->
+    
+        <a class="post_share-link" href="https://www.facebook.com/sharer/sharer.php?u=http://chojd.com/20150518/technology/ios_cocoapods_basic/index.html" target="_blank">
+            <li class="mdl-menu__item">
+                分享到 Facebook
+            </li>
+        </a>
+    
+
+    <!-- Share Google+ -->
+    
+
+    <!-- Share LinkedIn -->
+    
+        <a class="post_share-link" href="https://www.linkedin.com/shareArticle?mini=true&url=http://chojd.com/20150518/technology/ios_cocoapods_basic/index.html&title=CocoaPods基础" target="_blank">
+            <li class="mdl-menu__item">
+                分享到 LinkedIn
+            </li>
+        </a>
+    
+
+    <!-- Share QQ -->
+    
+        <a class="post_share-link" href="http://connect.qq.com/widget/shareqq/index.html?site=Gene&#39;s博客&title=CocoaPods基础&summary=记录所学，所思，所得。&pics=http://chojd.com/img/favicon.png&url=http://chojd.com/20150518/technology/ios_cocoapods_basic/index.html" target="_blank">
+            <li class="mdl-menu__item">
+                分享到 QQ
+            </li>
+        </a>
+    
+
+    <!-- Share Telegram -->
+    
+</ul>
+
+    
+</div>
+
+                
+
+                <!-- Post Content -->
+                <div id="post-content" class="mdl-color-text--grey-700 mdl-card__supporting-text fade out">
+    
+        <h1 id="iOS开发CocoaPods相关知识整理"><a href="#iOS开发CocoaPods相关知识整理" class="headerlink" title="iOS开发CocoaPods相关知识整理"></a>iOS开发CocoaPods相关知识整理</h1><h2 id="快速导航"><a href="#快速导航" class="headerlink" title="快速导航"></a>快速导航</h2><h5 id="官网资源参考"><a href="#官网资源参考" class="headerlink" title="官网资源参考"></a><a href="#官网资源参考">官网资源参考</a></h5><h5 id="CocoaPods安装"><a href="#CocoaPods安装" class="headerlink" title="CocoaPods安装"></a><a href="#CocoaPods安装">CocoaPods安装</a></h5><h5 id="CocoaPods在项目中使用"><a href="#CocoaPods在项目中使用" class="headerlink" title="CocoaPods在项目中使用"></a><a href="#CocoaPods在项目中使用">CocoaPods在项目中使用</a></h5><h5 id="常见错误"><a href="#常见错误" class="headerlink" title="常见错误"></a><a href="#常见错误">常见错误</a></h5><h2 id="官网资源参考-1"><a href="#官网资源参考-1" class="headerlink" title="官网资源参考"></a><a href="id:官网资源参考" target="_blank" rel="noopener">官网资源参考</a></h2><p><a href="https://guides.cocoapods.org/using/getting-started.html" target="_blank" rel="noopener">CocoaPods官方GUIDES</a></p>
+<p><a href="https://guides.cocoapods.org/terminal/commands.html" target="_blank" rel="noopener">CocoaPods官方命令行参考文档</a></p>
+<p><a href="https://guides.cocoapods.org/syntax/podspec.html" target="_blank" rel="noopener">CocoaPods官方Podspec语法参考文档</a></p>
+<p><a href="https://cocoapods.org/app" target="_blank" rel="noopener">CocoaPods官方app</a></p>
+<h2 id="CocoaPods安装（安装过程如果遇到问题，请查看常见错误）"><a href="#CocoaPods安装（安装过程如果遇到问题，请查看常见错误）" class="headerlink" title="CocoaPods安装（安装过程如果遇到问题，请查看常见错误）"></a><a href="id:CocoaPods安装" target="_blank" rel="noopener">CocoaPods安装</a>（安装过程如果遇到问题，请查看<a href="#常见错误">常见错误</a>）</h2><h4 id="使用gem-ruby包管理工具-，安装CocoaPods"><a href="#使用gem-ruby包管理工具-，安装CocoaPods" class="headerlink" title="使用gem(ruby包管理工具)，安装CocoaPods"></a>使用gem(ruby包管理工具)，安装CocoaPods</h4><h4 id="查看gem源"><a href="#查看gem源" class="headerlink" title="查看gem源"></a>查看gem源</h4><blockquote>
+<p>gem sources -l</p>
+</blockquote>
+<pre><code>grass in ~ λ gem sources -l
+*** CURRENT SOURCES ***
+
+https://rubygems.org/
+</code></pre><h4 id="ruby默认源-https-rubygems-org-被墙，先修改下默认源"><a href="#ruby默认源-https-rubygems-org-被墙，先修改下默认源" class="headerlink" title="ruby默认源(https://rubygems.org/)被墙，先修改下默认源"></a>ruby默认源(<a href="https://rubygems.org/)被墙，先修改下默认源" target="_blank" rel="noopener">https://rubygems.org/)被墙，先修改下默认源</a></h4><h4 id="移除默认源"><a href="#移除默认源" class="headerlink" title="移除默认源"></a>移除默认源</h4><blockquote>
+<p>gem sources –remove <a href="https://rubygems.org/" target="_blank" rel="noopener">https://rubygems.org/</a></p>
+</blockquote>
+<h4 id="使用新的ruby源-ruby源淘宝镜像"><a href="#使用新的ruby源-ruby源淘宝镜像" class="headerlink" title="使用新的ruby源 ruby源淘宝镜像"></a>使用新的ruby源 <a href="https://ruby.taobao.org/" target="_blank" rel="noopener">ruby源淘宝镜像</a></h4><blockquote>
+<p>gem sources -a <a href="https://ruby.taobao.org/" target="_blank" rel="noopener">https://ruby.taobao.org/</a></p>
+</blockquote>
+<h4 id="查看修改后的的源地址（请确保只有一个源地址）"><a href="#查看修改后的的源地址（请确保只有一个源地址）" class="headerlink" title="查看修改后的的源地址（请确保只有一个源地址）"></a>查看修改后的的源地址（请确保只有一个源地址）</h4><blockquote>
+<p>gem source -l</p>
+</blockquote>
+<pre><code>grass in ~ λ gem source -l
+*** CURRENT SOURCES ***
+
+https://ruby.taobao.org/
+</code></pre><h3 id="安装cocoapods-苹果系统升级OS-X-EL-Captian-安装命令需要修改-使用第二条命令"><a href="#安装cocoapods-苹果系统升级OS-X-EL-Captian-安装命令需要修改-使用第二条命令" class="headerlink" title="安装cocoapods(苹果系统升级OS X EL Captian 安装命令需要修改,使用第二条命令)"></a>安装cocoapods(苹果系统升级OS X EL Captian 安装命令需要修改,使用第二条命令)</h3><blockquote>
+<p>sudo gem install cocoapods</p>
+</blockquote>
+<blockquote>
+<p>sudo gem install -n /usr/local/bin cocoapods</p>
+</blockquote>
+<h2 id="CocoaPods在项目中使用-1"><a href="#CocoaPods在项目中使用-1" class="headerlink" title="CocoaPods在项目中使用"></a><a href="id:CocoaPods在项目中使用" target="_blank" rel="noopener">CocoaPods在项目中使用</a></h2><h3 id="cd-到项目目录"><a href="#cd-到项目目录" class="headerlink" title="cd 到项目目录"></a>cd 到项目目录</h3><blockquote>
+<p>cd  ~/Desktop/CocoaPodsDemo</p>
+</blockquote>
+<blockquote>
+<p>ls</p>
+</blockquote>
+<pre><code>grass in ~ λ cd  ~/Desktop/CocoaPodsDemo             
+grass in ~/Desktop/CocoaPodsDemo λ ls
+CocoaPodsDemo           CocoaPodsDemoTests
+CocoaPodsDemo.xcodeproj CocoaPodsDemoUITests
+</code></pre><h3 id="新建CocoaPods初始化文件-工程目录会创建一个Podfile文件"><a href="#新建CocoaPods初始化文件-工程目录会创建一个Podfile文件" class="headerlink" title="新建CocoaPods初始化文件,工程目录会创建一个Podfile文件"></a>新建CocoaPods初始化文件,工程目录会创建一个Podfile文件</h3><blockquote>
+<p>pod init</p>
+</blockquote>
+<pre><code>grass in ~/Desktop/CocoaPodsDemo λ pod init
+grass in ~/Desktop/CocoaPodsDemo λ ls
+CocoaPodsDemo           CocoaPodsDemoTests      Podfile
+CocoaPodsDemo.xcodeproj CocoaPodsDemoUITests
+</code></pre><h3 id="Podfile文件用于编辑工程依赖，里面使用ruby语言"><a href="#Podfile文件用于编辑工程依赖，里面使用ruby语言" class="headerlink" title="Podfile文件用于编辑工程依赖，里面使用ruby语言"></a>Podfile文件用于编辑工程依赖，里面使用ruby语言</h3><h3 id="查询CocoaPods库-以AFNetwwoking为例"><a href="#查询CocoaPods库-以AFNetwwoking为例" class="headerlink" title="查询CocoaPods库(以AFNetwwoking为例)"></a>查询CocoaPods库(以AFNetwwoking为例)</h3><blockquote>
+<p>pod search afnetworking</p>
+</blockquote>
+<pre><code>-&gt; AFNetworking (3.0.4)
+   A delightful iOS and OS X networking framework.
+   pod &#39;AFNetworking&#39;, &#39;~&gt; 3.0.4&#39;
+   - Homepage: https://github.com/AFNetworking/AFNetworking
+   - Source:   https://github.com/AFNetworking/AFNetworking.git
+   - Versions: 3.0.4, 3.0.3, 3.0.2, 3.0.1, 3.0.0, 3.0.0-beta.3, 3.0.0-beta.2,
+   3.0.0-beta.1, 2.6.3, 2.6.2, 2.6.1, 2.6.0, 2.5.4, 2.5.3, 2.5.2, 2.5.1, 2.5.0,
+   2.4.1, 2.4.0, 2.3.1, 2.3.0, 2.2.4, 2.2.3, 2.2.2, 2.2.1, 2.2.0, 2.1.0, 2.0.3,
+   2.0.2, 2.0.1, 2.0.0, 2.0.0-RC3, 2.0.0-RC2, 2.0.0-RC1, 1.3.4, 1.3.3, 1.3.2,
+   1.3.1, 1.3.0, 1.2.1, 1.2.0, 1.1.0, 1.0.1, 1.0, 1.0RC3, 1.0RC2, 1.0RC1,
+   0.10.1, 0.10.0, 0.9.2, 0.9.1, 0.9.0, 0.7.0, 0.5.1 [master repo]
+   - Subspecs:
+     - AFNetworking/Serialization (3.0.4)
+     - AFNetworking/Security (3.0.4)
+     - AFNetworking/Reachability (3.0.4)
+     - AFNetworking/NSURLSession (3.0.4)
+     - AFNetworking/UIKit (3.0.4)
+</code></pre><h3 id="编辑Podfile文件，添加-pod-‘AFNetworking’-‘-gt-3-0-4’"><a href="#编辑Podfile文件，添加-pod-‘AFNetworking’-‘-gt-3-0-4’" class="headerlink" title="编辑Podfile文件，添加 pod ‘AFNetworking’, ‘~&gt; 3.0.4’"></a>编辑Podfile文件，添加 pod ‘AFNetworking’, ‘~&gt; 3.0.4’</h3><blockquote>
+<p>vim Podfile</p>
+</blockquote>
+<pre><code>target &#39;CocoaPodsDemo&#39; do
+
+\# 网络请求库
+pod &#39;AFNetworking&#39;, &#39;~&gt; 3.0.4&#39;
+
+end
+
+target &#39;CocoaPodsDemoTests&#39; do
+
+end
+
+target &#39;CocoaPodsDemoUITests&#39; do
+
+end
+</code></pre><h3 id="导入第三方库-pod-install-命令可能需要等待很久，需要下载一个很大的文件，建议翻墙加速"><a href="#导入第三方库-pod-install-命令可能需要等待很久，需要下载一个很大的文件，建议翻墙加速" class="headerlink" title="导入第三方库(pod install 命令可能需要等待很久，需要下载一个很大的文件，建议翻墙加速)"></a>导入第三方库(pod install 命令可能需要等待很久，需要下载一个很大的文件，建议翻墙加速)</h3><blockquote>
+<p>pod install</p>
+</blockquote>
+<pre><code>For more information see http://blog.cocoapods.org
+and the CHANGELOG for this version http://git.io/BaH8pQ.
+
+Analyzing dependencies
+Downloading dependencies
+Installing AFNetworking (3.0.4)
+Generating Pods project
+Integrating client project
+
+[!] Please close any current Xcode sessions and use `CocoaPodsDemo.xcworkspace` for this project from now on.
+Sending stats
+Pod installation complete! There is 1 dependency from the Podfile and 1 total
+pod installed.
+</code></pre><h3 id="使用新的方式打开工程-会生成CocoaPodsDemo-xcworkspace文件，点击打开工程"><a href="#使用新的方式打开工程-会生成CocoaPodsDemo-xcworkspace文件，点击打开工程" class="headerlink" title="使用新的方式打开工程(会生成CocoaPodsDemo.xcworkspace文件，点击打开工程)"></a>使用新的方式打开工程(会生成CocoaPodsDemo.xcworkspace文件，点击打开工程)</h3><blockquote>
+<p>ls</p>
+</blockquote>
+<pre><code>grass in ~/Desktop/CocoaPodsDemo λ ls
+CocoaPodsDemo             CocoaPodsDemoTests        Podfile.lock
+CocoaPodsDemo.xcodeproj   CocoaPodsDemoUITests      Pods
+CocoaPodsDemo.xcworkspace Podfile
+</code></pre><h2 id="构建CocoaPods"><a href="#构建CocoaPods" class="headerlink" title="构建CocoaPods"></a>构建CocoaPods</h2><p><a href="https://github.com/grassexplorer/PodLib" target="_blank" rel="noopener">https://github.com/grassexplorer/PodLib</a></p>
+<h3 id="使用-Pod-Lib-Create-命令"><a href="#使用-Pod-Lib-Create-命令" class="headerlink" title="使用 Pod Lib Create 命令"></a>使用 Pod Lib Create 命令</h3><blockquote>
+<p>pod lib create PodLib</p>
+</blockquote>
+<pre><code>命令说明：
+    Usage:
+
+        $ pod lib create NAME
+
+          Creates a scaffold for the development of a new Pod named `NAME` according to
+          the CocoaPods best practices. If a `TEMPLATE_URL`, pointing to a git repo
+          containing a compatible template, is specified, it will be used in place of the
+          default one.
+
+    Options:
+
+        --template-url=URL   The URL of the git repo containing a compatible template
+        --silent             Show nothing
+        --verbose            Show more debugging information
+        --no-ansi            Show output without ANSI codes
+        --help               Show help banner of specified command
+</code></pre><p>创建之前回答几个问题，按提问选择就行（创建过程需要从远端下载模板，配置好后，工程会自动启动）</p>
+<pre><code>
+What language do you want to use?? [ ObjC / Swift ]
+ &gt; objc
+
+Would you like to include a demo application with your library? [ Yes / No ]
+ &gt; yes
+
+Which testing frameworks will you use? [ Specta / Kiwi / None ]
+ &gt; none
+
+Would you like to do view based testing? [ Yes / No ]
+ &gt; no
+
+What is your class prefix?
+ &gt; OF
+
+</code></pre><p>工程目录是：(Mac OS 自身不带tree命令，使用 brew install tree可以安装)</p>
+<blockquote>
+<p>tree -L 2</p>
+</blockquote>
+<pre><code>grass in ~/Desktop/PodLib on master ● λ tree -L 2
+.
+├── Example
+│   ├── PodLib
+│   ├── PodLib.xcodeproj
+│   ├── PodLib.xcworkspace
+│   ├── Podfile
+│   ├── Podfile.lock
+│   ├── Pods
+│   └── Tests
+├── LICENSE
+├── Pod
+│   ├── Assets
+│   └── Classes
+├── PodLib.podspec
+├── README.md
+└── _Pods.xcodeproj -&gt; Example/Pods/Pods.xcodeproj
+</code></pre><p>查看工程目录中的Development Pods &gt; PodLib &gt; Pod &gt; Classes 里面有ReplaceMe.m,讲自己的库文件替换这个文件</p>
+<p>编写Podspec Metadata目录下的文件，是对这个库的描述</p>
+<p>podspec文件的编写参考<a href="https://guides.cocoapods.org/syntax/podspec.html" target="_blank" rel="noopener">CocoaPods官方Podspec语法参考文档</a></p>
+<p>README.md 文档使用 Markdown 语法编写</p>
+<p>#<a href="id:常见错误" target="_blank" rel="noopener">常见错误</a>#</p>
+<h3 id="错误1："><a href="#错误1：" class="headerlink" title="错误1："></a>错误1：</h3><p>Error fetching <a href="http://ruby.taobao.org/" target="_blank" rel="noopener">http://ruby.taobao.org/</a>:</p>
+<p>bad response Not Found 404 (<a href="http://ruby.taobao.org/specs.4.8.gz" target="_blank" rel="noopener">http://ruby.taobao.org/specs.4.8.gz</a>)</p>
+<p>解决方案：将gem源替换为<a href="https://ruby.taobao.org/" target="_blank" rel="noopener">https://ruby.taobao.org/</a></p>
+<h3 id="错误2："><a href="#错误2：" class="headerlink" title="错误2："></a>错误2：</h3><p>ERROR:  While executing gem … (Errno::EPERM)</p>
+<p>Operation not permitted - /usr/bin/pod</p>
+<p>解决方案：苹果系统升级OS X EL Capitan后会出现的插件错误，将安装流程 4.安装CocoaPods 的 (1)sudo gem install cocoapods ——&gt;改为sudo gem install -n /usr/local/bin cocoapods</p>
+
+        
+    
+
+    
+</div>
+
+
+                
+
+                <!-- Post Comments -->
+                
+                    
+                
+            </div>
+
+            <!-- Post Prev & Next Nav -->
+            <nav class="material-nav mdl-color-text--grey-50 mdl-cell mdl-cell--12-col">
+    <!-- Prev Nav -->
+    
+        <a href="/20150518/technology/coredata_advanced/" id="post_nav-newer" class="prev-content">
+            <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon mdl-color--white mdl-color-text--grey-900" role="presentation">
+                <i class="material-icons">arrow_back</i>
+            </button>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            新篇
+        </a>
+    
+
+    <!-- Section Spacer -->
+    <div class="section-spacer"></div>
+
+    <!-- Next Nav -->
+    
+</nav>
+
+        </div>
+    </div>
+
+
+
+                    
+                        <!-- Overlay For Active Sidebar -->
+<div class="sidebar-overlay"></div>
+
+<!-- Material sidebar -->
+<aside id="sidebar" class="sidebar sidebar-colored sidebar-fixed-left" role="navigation">
+    <div id="sidebar-main">
+        <!-- Sidebar Header -->
+        <div class="sidebar-header header-cover" style="background-image: url(/img/sidebar_header.png);">
+    <!-- Top bar -->
+    <div class="top-bar"></div>
+
+    <!-- Sidebar toggle button -->
+    <button type="button" class="sidebar-toggle mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon" style="display: initial;" data-upgraded=",MaterialButton,MaterialRipple">
+        <i class="material-icons">clear_all</i>
+        <span class="mdl-button__ripple-container">
+            <span class="mdl-ripple">
+            </span>
+        </span>
+    </button>
+
+    <!-- Sidebar Avatar -->
+    <div class="sidebar-image">
+        <img src="/img/avatar.png" alt="Gene's avatar">
+    </div>
+
+    <!-- Sidebar Email -->
+    <a data-toggle="dropdown" class="sidebar-brand" href="#settings-dropdown">
+        i@chojd.com
+        <b class="caret"></b>
+    </a>
+</div>
+
+
+        <!-- Sidebar Navigation  -->
+        <ul class="nav sidebar-nav">
+    <!-- User dropdown  -->
+    <li class="dropdown">
+        <ul id="settings-dropdown" class="dropdown-menu">
+            
+                <li>
+                    <a href="mailto:i@chojd.com" target="_blank" title="发邮件">
+                        
+                            <i class="material-icons sidebar-material-icons sidebar-indent-left1pc-element">send</i>
+                        
+                        发邮件
+                    </a>
+                </li>
+            
+        </ul>
+    </li>
+
+    <!-- Homepage -->
+    
+        <li id="sidebar-first-li">
+            <a href="/">
+                
+                    <i class="material-icons sidebar-material-icons">home</i>
+                
+                主页
+            </a>
+        </li>
+        
+    
+
+    <!-- Archives  -->
+    
+        <li class="dropdown">
+            <a href="#" class="ripple-effect dropdown-toggle" data-toggle="dropdown">
+                
+                    <i class="material-icons sidebar-material-icons">inbox</i>
+                
+                    归档
+                <b class="caret"></b>
+            </a>
+            <ul class="dropdown-menu">
+            <li>
+                <a class="sidebar_archives-link" href="/archives/2018/04/">四月 2018<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2017/12/">十二月 2017<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2017/11/">十一月 2017<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2017/10/">十月 2017<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2017/06/">六月 2017<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2017/05/">五月 2017<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2017/03/">三月 2017<span class="sidebar_archives-count">4</span></a></li><li><a class="sidebar_archives-link" href="/archives/2016/09/">九月 2016<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2016/07/">七月 2016<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2015/05/">五月 2015<span class="sidebar_archives-count">2</span></a>
+            </ul>
+        </li>
+        
+    
+
+    <!-- Categories  -->
+    
+        <li class="dropdown">
+            <a href="#" class="ripple-effect dropdown-toggle" data-toggle="dropdown">
+                
+                    <i class="material-icons sidebar-material-icons">chrome_reader_mode</i>
+                
+                分类
+                <b class="caret"></b>
+            </a>
+            <ul class="dropdown-menu">
+                <li>
+                <a class="sidebar_archives-link" href="/categories/思考/">思考<span class="sidebar_archives-count">3</span></a></li><li><a class="sidebar_archives-link" href="/categories/技术/">技术<span class="sidebar_archives-count">7</span></a></li><li><a class="sidebar_archives-link" href="/categories/生活/">生活<span class="sidebar_archives-count">4</span></a>
+            </ul>
+        </li>
+        
+    
+
+    <!-- Pages  -->
+    
+        <li>
+            <a href="/timeline" title="时间轴">
+                
+                    <i class="material-icons sidebar-material-icons">timeline</i>
+                
+                时间轴
+            </a>
+        </li>
+        
+    
+
+    <!-- Article Number  -->
+    
+</ul>
+
+
+        <!-- Sidebar Footer -->
+        <!--
+I'm glad you use this theme, the development is no so easy, I hope you can keep the copyright, I will thank you so much.
+If you still want to delete the copyrights, could you still retain the first one? Which namely "Theme Material"
+It will not impact the appearance and can give developers a lot of support :)
+
+很高兴您使用并喜欢该主题，开发不易 十分谢谢与希望您可以保留一下版权声明。
+如果您仍然想删除的话 能否只保留第一项呢？即 "Theme Material"
+它不会影响美观并可以给开发者很大的支持和动力。 :)
+-->
+
+<!-- Sidebar Divider -->
+
+
+<!-- Theme Material -->
+
+
+<!-- Help & Support -->
+<!--
+
+-->
+
+<!-- Feedback -->
+<!--
+
+-->
+
+<!-- About Theme -->
+<!--
+
+-->
+
+    </div>
+
+    <!-- Sidebar Image -->
+    
+
+</aside>
+
+                    
+
+                    
+                        <!-- Footer Top Button -->
+                        <div id="back-to-top" class="toTop-wrap">
+    <a href="#top" class="toTop">
+        <i class="material-icons footer_top-i">expand_less</i>
+    </a>
+</div>
+
+                    
+
+                    <!--Footer-->
+<footer class="mdl-mini-footer" id="bottom">
+    
+        <!-- Paradox Footer Left Section -->
+        <div class="mdl-mini-footer--left-section sns-list">
+    <!-- Twitter -->
+    
+
+    <!-- Facebook -->
+    
+
+    <!-- Google + -->
+    
+
+    <!-- Weibo -->
+    
+
+    <!-- Instagram -->
+    
+
+    <!-- Tumblr -->
+    
+
+    <!-- Github -->
+    
+        <a href="https://github.com/chojd" target="_blank">
+            <button class="mdl-mini-footer--social-btn social-btn footer-sns-github">
+                <span class="visuallyhidden">Github</span>
+            </button><!--
+     --></a>
+    
+
+    <!-- LinkedIn -->
+    
+
+    <!-- Zhihu -->
+    
+
+    <!-- Bilibili -->
+    
+
+    <!-- Telegram -->
+    
+    
+    <!-- V2EX -->
+    
+</div>
+
+
+        <!--Copyright-->
+        <div id="copyright">
+            Copyright&nbsp;©&nbsp;2015&nbsp;-<script type="text/javascript">var fd = new Date();document.write("&nbsp;" + fd.getFullYear() + "&nbsp;");</script>Gene's博客
+            
+        </div>
+
+        <!-- Paradox Footer Right Section -->
+
+        <!--
+        I am glad you use this theme, the development is no so easy, I hope you can keep the copyright.
+        It will not impact the appearance and can give developers a lot of support :)
+
+        很高兴您使用该主题，开发不易，希望您可以保留一下版权声明。
+        它不会影响美观并可以给开发者很大的支持。 :)
+        -->
+
+        <div class="mdl-mini-footer--right-section">
+            <div>
+                <div class="footer-develop-div">Powered by <a href="https://hexo.io" target="_blank" class="footer-develop-a">Hexo</a></div>
+                <div class="footer-develop-div">Theme - <a href="https://github.com/viosey/hexo-theme-material" target="_blank" class="footer-develop-a">Material</a></div>
+            </div>
+        </div>
+    
+</footer>
+
+
+                    <!-- Import JS File -->
+
+    <script>lsloader.load("lazyload_js","/js/lazyload.min.js?1BcfzuNXqV+ntF6gq+5X3Q==", true)</script>
+
+
+
+    <script>lsloader.load("js_js","/js/js.min.js?V/53wGualMuiPM3xoetD5Q==", true)</script>
+
+
+
+    <script>lsloader.load("np_js","/js/nprogress.js?pl3Qhb9lvqR1FlyLUna1Yw==", true)</script>
+
+
+<script type="text/ls-javascript" id="NProgress-script">
+    NProgress.configure({
+        showSpinner: true
+    });
+    NProgress.start();
+    $('#nprogress .bar').css({
+        'background': '#29d'
+    });
+    $('#nprogress .peg').css({
+        'box-shadow': '0 0 10px #29d, 0 0 15px #29d'
+    });
+    $('#nprogress .spinner-icon').css({
+        'border-top-color': '#29d',
+        'border-left-color': '#29d'
+    });
+    setTimeout(function() {
+        NProgress.done();
+        $('.fade').removeClass('out');
+    }, 800);
+</script>
+
+
+
+    
+        <script>lsloader.load("sm_js","/js/smoothscroll.js?lOy/ACj5suSNi7ZVFVbpFQ==", true)</script>
+    
+
+
+
+
+
+
+
+
+
+
+
+<!-- UC Browser Compatible -->
+<script>
+	var agent = navigator.userAgent.toLowerCase();
+	if(agent.indexOf('ucbrowser')>0) {
+		document.write('<link rel="stylesheet" href="/css/uc.css">');
+	   alert('由于 UC 浏览器使用极旧的内核，而本网站使用了一些新的特性。\n为了您能更好的浏览，推荐使用 Chrome 或 Firefox 浏览器。');
+	}
+</script>
+
+<!-- Import prettify js  -->
+
+    
+        
+            <script>lsloader.load("prettify_js","/js/prettify.min.js?WN07fivHQSMKWy7BmHBB6w==", true)</script>
+        
+    
+
+
+    
+        <script>lsloader.load("hanabi","/js/hanabi-browser-bundle.js?Pki5+pzkluqu53g+ouMWpA==", true)</script>
+    
+
+
+<!-- Window Load -->
+<!-- add class for prettify -->
+<script type="text/ls-javascript" id="window-load">
+    $(window).on('load', function() {
+        // Post_Toc parent position fixed
+        $('.post-toc-wrap').parent('.mdl-menu__container').css('position', 'fixed');
+    });
+
+    
+        
+            $(function() {
+                $('pre').addClass('prettyprint linenums').attr('style', 'overflow:auto;');
+                prettyPrint();
+                })
+        
+    
+    
+        
+            HanabiBrowser.clearColors();
+        
+        
+        HanabiBrowser.start('pre code',false);
+    
+</script>
+
+<!-- MathJax Load-->
+
+
+<!-- Bing Background -->
+
+
+<script type="text/ls-javascript" id="lazy-load">
+    // Offer LazyLoad
+    queue.offer(function(){
+        $('.lazy').lazyload({
+            effect : 'show'
+        });
+    });
+
+    // Start Queue
+    $(document).ready(function(){
+        setInterval(function(){
+            queue.execNext();
+        },200);
+    });
+</script>
+
+<!-- Custom Footer -->
+
+
+
+<script>
+    (function(){
+        var scriptList = document.querySelectorAll('script[type="text/ls-javascript"]')
+
+        for (var i = 0; i < scriptList.length; ++i) {
+            var item = scriptList[i];
+            lsloader.runInlineScript(item.id,item.id);
+        }
+    })()
+console.log('\n %c © Material Theme | Version: 1.5.2 | https://github.com/viosey/hexo-theme-material %c \n', 'color:#455a64;background:#e0e0e0;padding:5px 0;border-top-left-radius:5px;border-bottom-left-radius:5px;', 'color:#455a64;background:#e0e0e0;padding:5px 0;border-top-right-radius:5px;border-bottom-right-radius:5px;');
+</script>
+
+                </main>
+            </div>
+        </body>
+    
+</html>

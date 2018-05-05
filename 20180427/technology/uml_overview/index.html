@@ -1,0 +1,1013 @@
+<!DOCTYPE html>
+<html style="display: none;" lang="zh">
+    <head>
+    <meta charset="utf-8">
+    <!--
+        © Material Theme
+        https://github.com/viosey/hexo-theme-material
+        Version: 1.5.2 -->
+    <script>
+        window.materialVersion = "1.5.2"
+        // Delete localstorage with these tags
+        window.oldVersion = [
+            'codestartv1',
+            '1.3.4',
+            '1.4.0',
+            '1.4.0b1',
+            '1.5.0'
+        ]
+    </script>
+
+    <!-- dns prefetch -->
+    <meta http-equiv="x-dns-prefetch-control" content="on">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <!-- Meta & Info -->
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <meta name="renderer" content="webkit">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+
+    <!-- Title -->
+    
+    <title>
+        
+            UML概览（一） | 
+        
+        Gene&#39;s博客
+    </title>
+
+    <!-- Favicons -->
+    <link rel="icon shortcut" type="image/ico" href="/img/favicon.png">
+    <link rel="icon" href="/img/favicon.png">
+
+    <meta name="format-detection" content="telephone=no"/>
+    <meta name="description" itemprop="description" content="统一建模语言概览">
+    <meta name="keywords" content=",UML">
+    <meta name="theme-color" content="#0097A7">
+
+    <!-- Disable Fucking Bloody Baidu Tranformation -->
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta http-equiv="Cache-Control" content="no-siteapp" />
+
+    <!--[if lte IE 9]>
+        <link rel="stylesheet" href="/css/ie-blocker.css">
+
+        
+            <script src="/js/ie-blocker.zhCN.js"></script>
+        
+    <![endif]-->
+
+    <!-- Import lsloader -->
+    <script>(function(){window.lsloader={jsRunSequence:[],jsnamemap:{},cssnamemap:{}};lsloader.removeLS=function(a){try{localStorage.removeItem(a)}catch(b){}};lsloader.setLS=function(a,c){try{localStorage.setItem(a,c)}catch(b){}};lsloader.getLS=function(a){var c="";try{c=localStorage.getItem(a)}catch(b){c=""}return c};versionString="/*"+(window.materialVersion||"unknownVersion")+"*/";lsloader.clean=function(){try{var b=[];for(var a=0;a<localStorage.length;a++){b.push(localStorage.key(a))}b.forEach(function(e){var f=lsloader.getLS(e);if(window.oldVersion){var d=window.oldVersion.reduce(function(g,h){return g||f.indexOf("/*"+h+"*/")!==-1},false);if(d){lsloader.removeLS(e)}}})}catch(c){}};lsloader.clean();lsloader.load=function(f,a,b,d){if(typeof b==="boolean"){d=b;b=undefined}d=d||false;b=b||function(){};var e;e=this.getLS(f);if(e&&e.indexOf(versionString)===-1){this.removeLS(f);this.requestResource(f,a,b,d);return}if(e){var c=e.split(versionString)[0];if(c!=a){console.log("reload:"+a);this.removeLS(f);this.requestResource(f,a,b,d);return}e=e.split(versionString)[1];if(d){this.jsRunSequence.push({name:f,code:e});this.runjs(a,f,e)}else{document.getElementById(f).appendChild(document.createTextNode(e));b()}}else{this.requestResource(f,a,b,d)}};lsloader.requestResource=function(b,e,a,c){var d=this;if(c){this.iojs(e,b,function(h,f,g){d.setLS(f,h+versionString+g);d.runjs(h,f,g)})}else{this.iocss(e,b,function(f){document.getElementById(b).appendChild(document.createTextNode(f));d.setLS(b,e+versionString+f)},a)}};lsloader.iojs=function(d,b,g){var a=this;a.jsRunSequence.push({name:b,code:""});try{var f=new XMLHttpRequest();f.open("get",d,true);f.onreadystatechange=function(){if(f.readyState==4){if((f.status>=200&&f.status<300)||f.status==304){if(f.response!=""){g(d,b,f.response);return}}a.jsfallback(d,b)}};f.send(null)}catch(c){a.jsfallback(d,b)}};lsloader.iocss=function(f,c,h,a){var b=this;try{var g=new XMLHttpRequest();g.open("get",f,true);g.onreadystatechange=function(){if(g.readyState==4){if((g.status>=200&&g.status<300)||g.status==304){if(g.response!=""){h(g.response);a();return}}b.cssfallback(f,c,a)}};g.send(null)}catch(d){b.cssfallback(f,c,a)}};lsloader.iofonts=function(f,c,h,a){var b=this;try{var g=new XMLHttpRequest();g.open("get",f,true);g.onreadystatechange=function(){if(g.readyState==4){if((g.status>=200&&g.status<300)||g.status==304){if(g.response!=""){h(g.response);a();return}}b.cssfallback(f,c,a)}};g.send(null)}catch(d){b.cssfallback(f,c,a)}};lsloader.runjs=function(f,c,e){if(!!c&&!!e){for(var b in this.jsRunSequence){if(this.jsRunSequence[b].name==c){this.jsRunSequence[b].code=e}}}if(!!this.jsRunSequence[0]&&!!this.jsRunSequence[0].code&&this.jsRunSequence[0].status!="failed"){var a=document.createElement("script");a.appendChild(document.createTextNode(this.jsRunSequence[0].code));a.type="text/javascript";document.getElementsByTagName("head")[0].appendChild(a);this.jsRunSequence.shift();if(this.jsRunSequence.length>0){this.runjs()}}else{if(!!this.jsRunSequence[0]&&this.jsRunSequence[0].status=="failed"){var d=this;var a=document.createElement("script");a.src=this.jsRunSequence[0].path;a.type="text/javascript";this.jsRunSequence[0].status="loading";a.onload=function(){d.jsRunSequence.shift();if(d.jsRunSequence.length>0){d.runjs()}};document.body.appendChild(a)}}};lsloader.tagLoad=function(b,a){this.jsRunSequence.push({name:a,code:"",path:b,status:"failed"});this.runjs()};lsloader.jsfallback=function(c,b){if(!!this.jsnamemap[b]){return}else{this.jsnamemap[b]=b}for(var a in this.jsRunSequence){if(this.jsRunSequence[a].name==b){this.jsRunSequence[a].code="";this.jsRunSequence[a].status="failed";this.jsRunSequence[a].path=c}}this.runjs()};lsloader.cssfallback=function(e,c,b){if(!!this.cssnamemap[c]){return}else{this.cssnamemap[c]=1}var d=document.createElement("link");d.type="text/css";d.href=e;d.rel="stylesheet";d.onload=d.onerror=b;var a=document.getElementsByTagName("script")[0];a.parentNode.insertBefore(d,a)};lsloader.runInlineScript=function(c,b){var a=document.getElementById(b).innerText;this.jsRunSequence.push({name:c,code:a});this.runjs()}})();</script>
+
+    <!-- Import queue -->
+    <script>function Queue(){this.dataStore=[];this.offer=b;this.poll=d;this.execNext=a;this.debug=false;this.startDebug=c;function b(e){if(this.debug){console.log("Offered a Queued Function.")}if(typeof e==="function"){this.dataStore.push(e)}else{console.log("You must offer a function.")}}function d(){if(this.debug){console.log("Polled a Queued Function.")}return this.dataStore.shift()}function a(){var e=this.poll();if(e!==undefined){if(this.debug){console.log("Run a Queued Function.")}e()}}function c(){this.debug=true}}var queue=new Queue();</script>
+
+    <!-- Import CSS -->
+    
+        <style id="material_css"></style><script>if(typeof window.lsLoadCSSMaxNums === "undefined")window.lsLoadCSSMaxNums = 0;window.lsLoadCSSMaxNums++;lsloader.load("material_css","/css/material.min.css?Z7a72R1E4SxzBKR/WGctOA==",function(){if(typeof window.lsLoadCSSNums === "undefined")window.lsLoadCSSNums = 0;window.lsLoadCSSNums++;if(window.lsLoadCSSNums == window.lsLoadCSSMaxNums)document.documentElement.style.display="";}, false)</script>
+        <style id="style_css"></style><script>if(typeof window.lsLoadCSSMaxNums === "undefined")window.lsLoadCSSMaxNums = 0;window.lsLoadCSSMaxNums++;lsloader.load("style_css","/css/style.min.css?MKetZV3cUTfDxvMffaOezg==",function(){if(typeof window.lsLoadCSSNums === "undefined")window.lsLoadCSSNums = 0;window.lsLoadCSSNums++;if(window.lsLoadCSSNums == window.lsLoadCSSMaxNums)document.documentElement.style.display="";}, false)</script>
+
+        
+            
+                <style id="prettify_css"></style><script>if(typeof window.lsLoadCSSMaxNums === "undefined")window.lsLoadCSSMaxNums = 0;window.lsLoadCSSMaxNums++;lsloader.load("prettify_css","/css/prettify.min.css?zp8STOU9v89XWFEnN+6YmQ==",function(){if(typeof window.lsLoadCSSNums === "undefined")window.lsLoadCSSNums = 0;window.lsLoadCSSNums++;if(window.lsLoadCSSNums == window.lsLoadCSSMaxNums)document.documentElement.style.display="";}, false)</script>
+                <style id="prettify_theme"></style><script>if(typeof window.lsLoadCSSMaxNums === "undefined")window.lsLoadCSSMaxNums = 0;window.lsLoadCSSMaxNums++;lsloader.load("prettify_theme","/css/prettify/github-v2.min.css?AfzKxt++K+/lhZBlSjnxwg==",function(){if(typeof window.lsLoadCSSNums === "undefined")window.lsLoadCSSNums = 0;window.lsLoadCSSNums++;if(window.lsLoadCSSNums == window.lsLoadCSSMaxNums)document.documentElement.style.display="";}, false)</script>
+            
+        
+
+    
+
+    
+
+    <!-- Config CSS -->
+
+<!-- Other Styles -->
+<style>
+  body, html {
+    font-family: Roboto, "Helvetica Neue", Helvetica, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "微软雅黑", Arial, sans-serif;
+    overflow-x: hidden !important;
+  }
+  
+  code {
+    font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+  }
+
+  a {
+    color: #00838F;
+  }
+
+  .mdl-card__media,
+  #search-label,
+  #search-form-label:after,
+  #scheme-Paradox .hot_tags-count,
+  #scheme-Paradox .sidebar_archives-count,
+  #scheme-Paradox .sidebar-colored .sidebar-header,
+  #scheme-Paradox .sidebar-colored .sidebar-badge{
+    background-color: #0097A7 !important;
+  }
+
+  /* Sidebar User Drop Down Menu Text Color */
+  #scheme-Paradox .sidebar-colored .sidebar-nav>.dropdown>.dropdown-menu>li>a:hover,
+  #scheme-Paradox .sidebar-colored .sidebar-nav>.dropdown>.dropdown-menu>li>a:focus {
+    color: #0097A7 !important;
+  }
+
+  #post_entry-right-info,
+  .sidebar-colored .sidebar-nav li:hover > a,
+  .sidebar-colored .sidebar-nav li:hover > a i,
+  .sidebar-colored .sidebar-nav li > a:hover,
+  .sidebar-colored .sidebar-nav li > a:hover i,
+  .sidebar-colored .sidebar-nav li > a:focus i,
+  .sidebar-colored .sidebar-nav > .open > a,
+  .sidebar-colored .sidebar-nav > .open > a:hover,
+  .sidebar-colored .sidebar-nav > .open > a:focus,
+  #ds-reset #ds-ctx .ds-ctx-entry .ds-ctx-head a {
+    color: #0097A7 !important;
+  }
+
+  .toTop {
+    background: #757575 !important;
+  }
+
+  .material-layout .material-post>.material-nav,
+  .material-layout .material-index>.material-nav,
+  .material-nav a {
+    color: #757575;
+  }
+
+  #scheme-Paradox .MD-burger-layer {
+    background-color: #757575;
+  }
+
+  #scheme-Paradox #post-toc-trigger-btn {
+    color: #757575;
+  }
+
+  .post-toc a:hover {
+    color: #00838F;
+    text-decoration: underline;
+  }
+
+</style>
+
+
+<!-- Theme Background Related-->
+
+    <style>
+      body{
+        background-image: url(/img/bg.png);
+      }
+    </style>
+
+
+
+
+<!-- Fade Effect -->
+
+    <style>
+      .fade {
+        transition: all 800ms linear;
+        -webkit-transform: translate3d(0,0,0);
+        -moz-transform: translate3d(0,0,0);
+        -ms-transform: translate3d(0,0,0);
+        -o-transform: translate3d(0,0,0);
+        transform: translate3d(0,0,0);
+        opacity: 1;
+      }
+
+      .fade.out{
+        opacity: 0;
+      }
+    </style>
+
+
+<!-- Import Font -->
+<!-- Import Roboto -->
+
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500" rel="stylesheet">
+
+
+<!-- Import Material Icons -->
+
+
+    <style id="material_icons"></style><script>if(typeof window.lsLoadCSSMaxNums === "undefined")window.lsLoadCSSMaxNums = 0;window.lsLoadCSSMaxNums++;lsloader.load("material_icons","/css/material-icons.css?pqhB/Rd/ab0H2+kZp0RDmw==",function(){if(typeof window.lsLoadCSSNums === "undefined")window.lsLoadCSSNums = 0;window.lsLoadCSSNums++;if(window.lsLoadCSSNums == window.lsLoadCSSMaxNums)document.documentElement.style.display="";}, false)</script>
+
+
+
+
+    <!-- Import jQuery -->
+    
+        <script>lsloader.load("jq_js","/js/jquery.min.js?qcusAULNeBksqffqUM2+Ig==", true)</script>
+    
+
+    <!-- WebAPP Icons -->
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="application-name" content="Gene&#39;s博客">
+    <meta name="msapplication-starturl" content="http://chojd.com/20180427/technology/uml_overview/">
+    <meta name="msapplication-navbutton-color" content="#0097A7">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-title" content="Gene&#39;s博客">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon" href="/img/favicon.png">
+
+    <!-- Site Verification -->
+    
+    
+
+    <!-- RSS -->
+    
+
+    <!-- The Open Graph protocol -->
+    <meta property="og:url" content="http://chojd.com/20180427/technology/uml_overview/">
+    <meta property="og:type" content="blog">
+    <meta property="og:title" content="UML概览（一） | Gene&#39;s博客">
+    <meta property="og:image" content="/img/favicon.png">
+    <meta property="og:description" content="统一建模语言概览">
+    <meta property="og:article:tag" content="UML"> 
+
+    
+        <meta property="article:published_time" content="Fri Apr 27 2018 00:00:00 GMT+0800">
+        <meta property="article:modified_time" content="Sat May 05 2018 17:05:14 GMT+0800">
+    
+
+    <!-- The Twitter Card protocol -->
+    <meta name="twitter:card" content="summary_large_image">
+
+    <!-- Add canonical link for SEO -->
+    
+        <link rel="canonical" href="http://chojd.com/20180427/technology/uml_overview/index.html" />
+    
+
+    <!-- Structured-data for SEO -->
+    
+        
+
+
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "mainEntityOfPage": "http://chojd.com/20180427/technology/uml_overview/index.html",
+    "headline": "UML概览（一）",
+    "datePublished": "Fri Apr 27 2018 00:00:00 GMT+0800",
+    "dateModified": "Sat May 05 2018 17:05:14 GMT+0800",
+    "author": {
+        "@type": "Person",
+        "name": "Gene",
+        "image": {
+            "@type": "ImageObject",
+            "url": "/img/avatar.png"
+        },
+        "description": "Gene Cho 的博客。,记录所学，所思，所得。"
+    },
+    "publisher": {
+        "@type": "Organization",
+        "name": "Gene&#39;s博客",
+        "logo": {
+            "@type":"ImageObject",
+            "url": "/img/favicon.png"
+        }
+    },
+    "keywords": ",UML",
+    "description": "统一建模语言概览",
+}
+</script>
+
+
+    
+
+    <!-- Analytics -->
+    
+    
+    
+
+    <!-- Custom Head -->
+    
+
+</head>
+
+
+    
+        <body id="scheme-Paradox" class="lazy">
+            <div class="material-layout  mdl-js-layout has-drawer is-upgraded">
+                
+
+                <!-- Main Container -->
+                <main class="material-layout__content" id="main">
+
+                    <!-- Top Anchor -->
+                    <div id="top"></div>
+
+                    
+                        <!-- Hamburger Button -->
+                        <button class="MD-burger-icon sidebar-toggle">
+                            <span class="MD-burger-layer"></span>
+                        </button>
+                    
+
+                    <!-- Post TOC -->
+
+    
+    <!-- Back Button -->
+    <!--
+    <div class="material-back" id="backhome-div" tabindex="0">
+        <a class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon"
+           href="#" onclick="window.history.back();return false;"
+           target="_self"
+           role="button"
+           data-upgraded=",MaterialButton,MaterialRipple">
+            <i class="material-icons" role="presentation">arrow_back</i>
+            <span class="mdl-button__ripple-container">
+                <span class="mdl-ripple"></span>
+            </span>
+        </a>
+    </div>
+    -->
+
+
+    <!-- Left aligned menu below button -->
+    
+    
+    <button id="post-toc-trigger-btn"
+        class="mdl-button mdl-js-button mdl-button--icon">
+        <i class="material-icons">format_list_numbered</i>
+    </button>
+
+    <ul class="post-toc-wrap mdl-menu mdl-menu--bottom-left mdl-js-menu mdl-js-ripple-effect" for="post-toc-trigger-btn" style="max-height:80vh; overflow-y:scroll;">
+        <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#UML概览（一）"><span class="post-toc-text">UML概览（一）</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#前言"><span class="post-toc-text">前言</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#从现实世界到计算机世界（引用自《Thinking-in-UML》）"><span class="post-toc-text">从现实世界到计算机世界（引用自《Thinking in UML》）</span></a></li></ol></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#背景"><span class="post-toc-text">背景</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#1-UML是什么"><span class="post-toc-text">1. UML是什么</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#2-UML意义和应用场景"><span class="post-toc-text">2. UML意义和应用场景</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#3-图表"><span class="post-toc-text">3. 图表</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#4-结构图-Structure-Diagram"><span class="post-toc-text">4. 结构图 (Structure Diagram)</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#4-1-类图-Class-Diagram"><span class="post-toc-text">4.1 类图 (Class Diagram)</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#4-2-包图-Package-Diagram"><span class="post-toc-text">4.2 包图 (Package Diagram)</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#4-3-组件图-Component-Diagram"><span class="post-toc-text">4.3 组件图 (Component Diagram)</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#4-4-部署图-Deployment-Diagram"><span class="post-toc-text">4.4 部署图 (Deployment Diagram)</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#4-4-1-Deployment-Diagram"><span class="post-toc-text">4.4.1 (Deployment Diagram)</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#4-4-2-Network-Architecture-Diagram"><span class="post-toc-text">4.4.2 (Network Architecture Diagram)</span></a></li></ol></li></ol></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#5-行为图-Behavior-Diagram"><span class="post-toc-text">5. 行为图 (Behavior Diagram)</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#5-1-用例图-Use-Case-Diagram"><span class="post-toc-text">5.1 用例图 (Use Case Diagram)</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#5-2-状态机图-Behavioral-State-Machine-Diagram"><span class="post-toc-text">5.2 状态机图 (Behavioral State Machine Diagram)</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#5-2-交互图-Interation-Diagram"><span class="post-toc-text">5.2 交互图 (Interation Diagram)</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#5-2-序列图-Sequence-Diagram"><span class="post-toc-text">5.2 序列图 (Sequence Diagram)</span></a></li></ol></li></ol></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#引用"><span class="post-toc-text">引用</span></a></li></ol></li></ol></li></ol>
+    </ul>
+    
+
+
+
+
+<!-- Layouts -->
+
+    <!-- Post Module -->
+    <div class="material-post_container">
+
+        <div class="material-post mdl-grid">
+            <div class="mdl-card mdl-shadow--4dp mdl-cell mdl-cell--12-col">
+
+                <!-- Post Header(Thumbnail & Title) -->
+                
+    <!-- Paradox Post Header -->
+    
+        
+            <!-- Random Thumbnail -->
+            <div class="post_thumbnail-random mdl-card__media mdl-color-text--grey-50">
+            <script type="text/ls-javascript" id="post-thumbnail-script">
+    var randomNum = Math.floor(Math.random() * 19 + 1);
+
+    $('.post_thumbnail-random').attr('data-original', '/img/random/material-' + randomNum + '.png');
+    $('.post_thumbnail-random').addClass('lazy');
+</script>
+
+        
+    
+            <p class="article-headline-p">
+                UML概览（一）
+            </p>
+        </div>
+
+
+
+
+
+                
+                    <!-- Paradox Post Info -->
+                    <div class="mdl-color-text--grey-700 mdl-card__supporting-text meta">
+
+    <!-- Author Avatar -->
+    <div id="author-avatar">
+        <img src="/img/avatar.png" width="44px" height="44px" alt="Author Avatar"/>
+    </div>
+    <!-- Author Name & Date -->
+    <div>
+        <strong>Gene</strong>
+        <span>4月 27, 2018</span>
+    </div>
+
+    <div class="section-spacer"></div>
+
+    <!-- Favorite -->
+    <!--
+        <button id="article-functions-like-button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon btn-like">
+            <i class="material-icons" role="presentation">favorite</i>
+            <span class="visuallyhidden">favorites</span>
+        </button>
+    -->
+
+    <!-- Qrcode -->
+    
+
+    <!-- Tags (bookmark) -->
+    
+    <button id="article-functions-viewtags-button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
+        <i class="material-icons" role="presentation">bookmark</i>
+        <span class="visuallyhidden">bookmark</span>
+    </button>
+    <ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="article-functions-viewtags-button">
+        <li class="mdl-menu__item">
+        <a class="post_tag-link" href="/tags/UML/">UML</a>
+    </ul>
+    
+
+    <!-- Share -->
+    
+        <button id="article-fuctions-share-button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
+    <i class="material-icons" role="presentation">share</i>
+    <span class="visuallyhidden">share</span>
+</button>
+<ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="article-fuctions-share-button">
+    
+
+    
+
+    <!-- Share Weibo -->
+    
+        <a class="post_share-link" href="http://service.weibo.com/share/share.php?appkey=&title=UML概览（一）&url=http://chojd.com/20180427/technology/uml_overview/index.html&pic=http://chojd.com/img/favicon.png&searchPic=false&style=simple" target="_blank">
+            <li class="mdl-menu__item">
+                分享到微博
+            </li>
+        </a>
+    
+
+    <!-- Share Twitter -->
+    
+        <a class="post_share-link" href="https://twitter.com/intent/tweet?text=UML概览（一）&url=http://chojd.com/20180427/technology/uml_overview/index.html&via=Gene" target="_blank">
+            <li class="mdl-menu__item">
+                分享到 Twitter
+            </li>
+        </a>
+    
+
+    <!-- Share Facebook -->
+    
+        <a class="post_share-link" href="https://www.facebook.com/sharer/sharer.php?u=http://chojd.com/20180427/technology/uml_overview/index.html" target="_blank">
+            <li class="mdl-menu__item">
+                分享到 Facebook
+            </li>
+        </a>
+    
+
+    <!-- Share Google+ -->
+    
+
+    <!-- Share LinkedIn -->
+    
+        <a class="post_share-link" href="https://www.linkedin.com/shareArticle?mini=true&url=http://chojd.com/20180427/technology/uml_overview/index.html&title=UML概览（一）" target="_blank">
+            <li class="mdl-menu__item">
+                分享到 LinkedIn
+            </li>
+        </a>
+    
+
+    <!-- Share QQ -->
+    
+        <a class="post_share-link" href="http://connect.qq.com/widget/shareqq/index.html?site=Gene&#39;s博客&title=UML概览（一）&summary=记录所学，所思，所得。&pics=http://chojd.com/img/favicon.png&url=http://chojd.com/20180427/technology/uml_overview/index.html" target="_blank">
+            <li class="mdl-menu__item">
+                分享到 QQ
+            </li>
+        </a>
+    
+
+    <!-- Share Telegram -->
+    
+</ul>
+
+    
+</div>
+
+                
+
+                <!-- Post Content -->
+                <div id="post-content" class="mdl-color-text--grey-700 mdl-card__supporting-text fade out">
+    
+        <h1 id="UML概览（一）"><a href="#UML概览（一）" class="headerlink" title="UML概览（一）"></a>UML概览（一）</h1><h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><h4 id="从现实世界到计算机世界（引用自《Thinking-in-UML》）"><a href="#从现实世界到计算机世界（引用自《Thinking-in-UML》）" class="headerlink" title="从现实世界到计算机世界（引用自《Thinking in UML》）"></a>从现实世界到计算机世界（引用自《Thinking in UML》）</h4><p>对于需求的实现，就是对现实世界到计算机世界的建模。但是如果不对现实世界的需求做一些抽象的概括，而只是大量的枚举现实世界的业务，整个系统将会变得臃肿而复杂，难以维护。</p>
+<ol>
+<li><p>从现实世界到业务模型<br>这是把现实世界映射到对象世界的第一步。UML采用用例这一关键元素捕获了现实世界的人要做的事，再通过用例场景、领域模型等视图将现实世界的<strong>人、事、物、规则</strong>这些构成现实世界的元素用UML这咱语言描述出来。面UML本身被设计成为一种不但适于现实世界理解，也适于对象世界理解的语言，所以用UML来描述现实世界这句话可以衍生换一下说法，变成：现实世界被我们用一种对象型语言描述。</p>
+</li>
+<li><p>从业务模型到概念模型<br>这是从对象世界来描述现实世界的方法。业务模型是用分析类来描述的，用例所代表的现实的业务过程，被“边界”、“控制”、“实体”以及“包”、“组件”等概述替代。面这些概念是可以被计算机理解的。现实世界千差万别的业务，都用“边界”、“控制”、“实体”这几个固定的元素来描述，也就是说，现实具体的业务被“抽象”成几个固定的概念。同时，这些概念还可以用“包”、“组件”等这些与现实世界毫不相干的纯计算机逻辑术语包装。这说明概念模型是计算机视角，或者说是对象视角的，而且这些对象视频的分析类所描述的信息是从映射了现实世界的业务模型转化而来的。<br>可以说，从业务模型到概念模型这一过程，正是我们需要的一种从对象世界来描述现实世界的方法。</p>
+</li>
+<li><p>从概念模型到设计模型<br>这是验证对象世界是否正确反映了现实世界的方法。“边界”、“控制”、“实体”这些对象化的概念，虽然是计算机可以理解的，但是它并不是真正的对象实例，即它们并不是可执行代码，概念模型只是纸上谈兵。真正的对象世界行为是由Java类、C++类、EJB、COM+等这些可执行代码构成的。然而，如果缺省了从概念模型到设计模型这个过程，Java类也好，C++也好，它们的行为是否正确凭什么去验证呢？</p>
+</li>
+</ol>
+<p>换句话说，荆概念模型在特定环境和条件下的“实例”化，实例化后的对象行为“执行”了概念模型描述的那些信息，因此设计模型得以通过概念模型追溯到原始需求来验证对象世界是否正确反映了现实世界。</p>
+<h3 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h3><p>软件开发的过程，也是将现实世界建模到软件世界的过程<br>软件工程最重要的阶段在于维护，清晰的文档非常有利于交流和维护，在软件工程这个特定领域，UML 是表现力很强的规约语言，UML 可以清晰的表述软件工程实践中使用的思想和结构，读懂并掌握 UML 是程序员非常有用的一项技能。</p>
+<h3 id="1-UML是什么"><a href="#1-UML是什么" class="headerlink" title="1. UML是什么"></a>1. UML是什么</h3><blockquote>
+<p>统一建模语言(英语：Unified Modeling Language，缩写 UML)是非专利的第三代建模和规约语言。UML是一种开放的方法，用于说明、可视化、构建和编写一个正在开发的、面向对象的、软件密集系统的制品的开放方法。UML展现了一系列最佳工程实践，这些最佳实践在对大规模，复杂系统进行建模方面，特别是在<a href="https://zh.wikipedia.org/wiki/%E8%BD%AF%E4%BB%B6%E6%9E%B6%E6%9E%84" target="_blank" rel="noopener">软件架构</a>层次已经被验证有效。</p>
+</blockquote>
+<h3 id="2-UML意义和应用场景"><a href="#2-UML意义和应用场景" class="headerlink" title="2. UML意义和应用场景"></a>2. UML意义和应用场景</h3><p>规范化的建模</p>
+<p>构建开发文档化，便于 <strong>交流</strong> 和 <strong>维护</strong> , e.g. 复杂业务</p>
+<p>阅读文档，e.g. 设计模式</p>
+<p>粒度不建议太细，e.g. 以生成代码为用途</p>
+<h3 id="3-图表"><a href="#3-图表" class="headerlink" title="3. 图表"></a>3. 图表</h3><p>UML规范定义了两种主要的UML图：<strong>结构图</strong> 和 <strong>行为图</strong></p>
+<ol>
+<li><p>Structure Diagram : 结构图<br> 结构图显示了系统及其各个部分在不同抽象层和实现层上的静态结构以及它们如何相互关联。 结构图中的元素表示系统的有意义的概念，可能包括抽象的，真实的世界和实现概念。</p>
+</li>
+<li><p>Behavior Diagram  : 行为图<br> 行为图显示了系统中对象的动态行为，可以将其描述为随着时间的推移对系统进行的一系列更改。UML 2.5图可以按照如下所示进行分层次分类。</p>
+</li>
+</ol>
+<p><strong>请注意，以蓝色显示的项目不是官方 UML 2.5 分类图的一部分</strong></p>
+<p><img src="https://www.uml-diagrams.org/uml-25-diagrams.png" alt="uml-25-diagrams"></p>
+<h3 id="4-结构图-Structure-Diagram"><a href="#4-结构图-Structure-Diagram" class="headerlink" title="4. 结构图 (Structure Diagram)"></a>4. 结构图 (Structure Diagram)</h3><h4 id="4-1-类图-Class-Diagram"><a href="#4-1-类图-Class-Diagram" class="headerlink" title="4.1 类图 (Class Diagram)"></a>4.1 类图 (Class Diagram)</h4><ol>
+<li>用途：展示系统、子系统、组件，相关的类和接口，它们的功能、约束、和关系，包含依赖性</li>
+<li><p>所涉及到的元素：类(class)，接口(interface)，功能(feature)，约束(constraint)，关联(association)，继承(generalization), 依赖(dependency)</p>
+</li>
+<li><p>示例 :<br><img src="https://www.uml-diagrams.org/class-diagrams/class-diagram-domain-overview.png" alt="class-diagram-domain-overview.png"></p>
+</li>
+</ol>
+<h4 id="4-2-包图-Package-Diagram"><a href="#4-2-包图-Package-Diagram" class="headerlink" title="4.2 包图 (Package Diagram)"></a>4.2 包图 (Package Diagram)</h4><ol>
+<li>用途：展示包与包之间的关系</li>
+<li><p>所涉及到的元素：包(package)，可打包的元素(packageable element), 依赖(dependency)</p>
+</li>
+<li><p>示例 :<br><img src="https://www.uml-diagrams.org/package-diagrams/package-diagram-elements.png" alt="package-diagram-elements.png"></p>
+</li>
+</ol>
+<h4 id="4-3-组件图-Component-Diagram"><a href="#4-3-组件图-Component-Diagram" class="headerlink" title="4.3 组件图 (Component Diagram)"></a>4.3 组件图 (Component Diagram)</h4><ol>
+<li>用途：展示组件和组件之间的依赖关系，用于组件化开发模式(<strong>Component-Based Development CBD</strong>)，描述面向服务的系统架构(<strong>Service-Oriented Architecture SOA</strong>)</li>
+<li><p>所涉及到的元素：组件(component)，接口(interface)，类(class)，组件实现(component realization)，端口(port)，连接器(connector)，使用(usage)</p>
+</li>
+<li><p>示例：<br><img src="https://www.uml-diagrams.org/component-diagrams/component-diagram-overview.png" alt="component-diagram-overview.png"></p>
+</li>
+</ol>
+<h4 id="4-4-部署图-Deployment-Diagram"><a href="#4-4-部署图-Deployment-Diagram" class="headerlink" title="4.4 部署图 (Deployment Diagram)"></a>4.4 部署图 (Deployment Diagram)</h4><h5 id="4-4-1-Deployment-Diagram"><a href="#4-4-1-Deployment-Diagram" class="headerlink" title="4.4.1 (Deployment Diagram)"></a>4.4.1 (Deployment Diagram)</h5><ol>
+<li>用途：展示软件或系统部署关系</li>
+<li>所涉及到的元素：部署(deployment), 部署目标(deployment target), 设备(device), etc</li>
+</ol>
+<p><img src="https://www.uml-diagrams.org/deployment-diagrams/deployment-diagram-overview-manifestation.png" alt="deployment-diagram-overview-manifestation"></p>
+<h5 id="4-4-2-Network-Architecture-Diagram"><a href="#4-4-2-Network-Architecture-Diagram" class="headerlink" title="4.4.2 (Network Architecture Diagram)"></a>4.4.2 (Network Architecture Diagram)</h5><ol>
+<li>用途：展示逻辑的或者物理的 <strong>网络架构</strong></li>
+<li><p>所涉及到的元素：节点，交换机，路由器，负载均衡，防火墙，网桥，主干网</p>
+</li>
+<li><p>示例：<br><img src="https://www.uml-diagrams.org/network-diagrams/network-diagram-overview.png" alt="network-diagram-overview.png"></p>
+</li>
+</ol>
+<h3 id="5-行为图-Behavior-Diagram"><a href="#5-行为图-Behavior-Diagram" class="headerlink" title="5. 行为图 (Behavior Diagram)"></a>5. 行为图 (Behavior Diagram)</h3><h4 id="5-1-用例图-Use-Case-Diagram"><a href="#5-1-用例图-Use-Case-Diagram" class="headerlink" title="5.1 用例图 (Use Case Diagram)"></a>5.1 用例图 (Use Case Diagram)</h4><ol>
+<li>用途：以角色为中心，展示与该角色相关的行为</li>
+<li><p>所涉及到的元素：用例(use case)，角色(actor)，主题(subject)，拓展(extend)，包含(include)，关联(association)</p>
+</li>
+<li><p>示例：<br><img src="https://www.uml-diagrams.org/use-case-diagrams/business-use-case-diagram-elements.png" alt="business-use-case-diagram-elements.png"></p>
+</li>
+</ol>
+<h4 id="5-2-状态机图-Behavioral-State-Machine-Diagram"><a href="#5-2-状态机图-Behavioral-State-Machine-Diagram" class="headerlink" title="5.2 状态机图 (Behavioral State Machine Diagram)"></a>5.2 状态机图 (Behavioral State Machine Diagram)</h4><ol>
+<li>用途：展示模型有限状态的离散行为</li>
+<li><p>所涉及到的元素：行为状态(behavioral state)，行为转变(behavioral transition)，伪状态(pseudostate)</p>
+</li>
+<li><p>示例：<br><img src="https://www.uml-diagrams.org/notation/behavioral-state-machine-frame.png" alt="behavioral-state-machine-frame.png"></p>
+</li>
+</ol>
+<h4 id="5-2-交互图-Interation-Diagram"><a href="#5-2-交互图-Interation-Diagram" class="headerlink" title="5.2 交互图 (Interation Diagram)"></a>5.2 交互图 (Interation Diagram)</h4><h5 id="5-2-序列图-Sequence-Diagram"><a href="#5-2-序列图-Sequence-Diagram" class="headerlink" title="5.2 序列图 (Sequence Diagram)"></a>5.2 序列图 (Sequence Diagram)</h5><ol>
+<li>用途：展示对象(生命线)之间的消息交换</li>
+<li><p>所涉及到的元素：生命线(lifeline)，执行说明书(execution specification)，消息(message)，组合片段(combined fragment)，使用交互(interaction use)，etc</p>
+</li>
+<li><p>示例：<br><img src="https://www.uml-diagrams.org/sequence-diagrams/sequence-diagram-overview.png" alt="sequence-diagram-overview.png"></p>
+</li>
+</ol>
+<h3 id="引用"><a href="#引用" class="headerlink" title="引用"></a>引用</h3><ol>
+<li><a href="https://www.uml-diagrams.org" target="_blank" rel="noopener">UML官网</a></li>
+<li><a href="https://zh.wikipedia.org/wiki/%E7%BB%9F%E4%B8%80%E5%BB%BA%E6%A8%A1%E8%AF%AD%E8%A8%80" target="_blank" rel="noopener">维基百科</a></li>
+<li><a href="http://www.omg.org/spec/UML/2.5" target="_blank" rel="noopener">OMG文档</a></li>
+<li><a href="http://docs.staruml.io/en/latest/basic-concepts.html" target="_blank" rel="noopener">StarUML文档</a></li>
+<li>《Thinking in UML》</li>
+</ol>
+
+        
+    
+
+    
+</div>
+
+
+                
+
+                <!-- Post Comments -->
+                
+                    
+                
+            </div>
+
+            <!-- Post Prev & Next Nav -->
+            <nav class="material-nav mdl-color-text--grey-50 mdl-cell mdl-cell--12-col">
+    <!-- Prev Nav -->
+    
+
+    <!-- Section Spacer -->
+    <div class="section-spacer"></div>
+
+    <!-- Next Nav -->
+    
+        <a href="/20171219/technology/url_percent_encoding/" id="post_nav-older" class="next-content">
+            旧篇
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon mdl-color--white mdl-color-text--grey-900" role="presentation">
+                <i class="material-icons">arrow_forward</i>
+            </button>
+        </a>
+    
+</nav>
+
+        </div>
+    </div>
+
+
+
+                    
+                        <!-- Overlay For Active Sidebar -->
+<div class="sidebar-overlay"></div>
+
+<!-- Material sidebar -->
+<aside id="sidebar" class="sidebar sidebar-colored sidebar-fixed-left" role="navigation">
+    <div id="sidebar-main">
+        <!-- Sidebar Header -->
+        <div class="sidebar-header header-cover" style="background-image: url(/img/sidebar_header.png);">
+    <!-- Top bar -->
+    <div class="top-bar"></div>
+
+    <!-- Sidebar toggle button -->
+    <button type="button" class="sidebar-toggle mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon" style="display: initial;" data-upgraded=",MaterialButton,MaterialRipple">
+        <i class="material-icons">clear_all</i>
+        <span class="mdl-button__ripple-container">
+            <span class="mdl-ripple">
+            </span>
+        </span>
+    </button>
+
+    <!-- Sidebar Avatar -->
+    <div class="sidebar-image">
+        <img src="/img/avatar.png" alt="Gene's avatar">
+    </div>
+
+    <!-- Sidebar Email -->
+    <a data-toggle="dropdown" class="sidebar-brand" href="#settings-dropdown">
+        i@chojd.com
+        <b class="caret"></b>
+    </a>
+</div>
+
+
+        <!-- Sidebar Navigation  -->
+        <ul class="nav sidebar-nav">
+    <!-- User dropdown  -->
+    <li class="dropdown">
+        <ul id="settings-dropdown" class="dropdown-menu">
+            
+                <li>
+                    <a href="mailto:i@chojd.com" target="_blank" title="发邮件">
+                        
+                            <i class="material-icons sidebar-material-icons sidebar-indent-left1pc-element">send</i>
+                        
+                        发邮件
+                    </a>
+                </li>
+            
+        </ul>
+    </li>
+
+    <!-- Homepage -->
+    
+        <li id="sidebar-first-li">
+            <a href="/">
+                
+                    <i class="material-icons sidebar-material-icons">home</i>
+                
+                主页
+            </a>
+        </li>
+        
+    
+
+    <!-- Archives  -->
+    
+        <li class="dropdown">
+            <a href="#" class="ripple-effect dropdown-toggle" data-toggle="dropdown">
+                
+                    <i class="material-icons sidebar-material-icons">inbox</i>
+                
+                    归档
+                <b class="caret"></b>
+            </a>
+            <ul class="dropdown-menu">
+            <li>
+                <a class="sidebar_archives-link" href="/archives/2018/04/">四月 2018<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2017/12/">十二月 2017<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2017/11/">十一月 2017<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2017/10/">十月 2017<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2017/06/">六月 2017<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2017/05/">五月 2017<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2017/03/">三月 2017<span class="sidebar_archives-count">4</span></a></li><li><a class="sidebar_archives-link" href="/archives/2016/09/">九月 2016<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2016/07/">七月 2016<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2015/05/">五月 2015<span class="sidebar_archives-count">2</span></a>
+            </ul>
+        </li>
+        
+    
+
+    <!-- Categories  -->
+    
+        <li class="dropdown">
+            <a href="#" class="ripple-effect dropdown-toggle" data-toggle="dropdown">
+                
+                    <i class="material-icons sidebar-material-icons">chrome_reader_mode</i>
+                
+                分类
+                <b class="caret"></b>
+            </a>
+            <ul class="dropdown-menu">
+                <li>
+                <a class="sidebar_archives-link" href="/categories/思考/">思考<span class="sidebar_archives-count">3</span></a></li><li><a class="sidebar_archives-link" href="/categories/技术/">技术<span class="sidebar_archives-count">7</span></a></li><li><a class="sidebar_archives-link" href="/categories/生活/">生活<span class="sidebar_archives-count">4</span></a>
+            </ul>
+        </li>
+        
+    
+
+    <!-- Pages  -->
+    
+        <li>
+            <a href="/timeline" title="时间轴">
+                
+                    <i class="material-icons sidebar-material-icons">timeline</i>
+                
+                时间轴
+            </a>
+        </li>
+        
+    
+
+    <!-- Article Number  -->
+    
+</ul>
+
+
+        <!-- Sidebar Footer -->
+        <!--
+I'm glad you use this theme, the development is no so easy, I hope you can keep the copyright, I will thank you so much.
+If you still want to delete the copyrights, could you still retain the first one? Which namely "Theme Material"
+It will not impact the appearance and can give developers a lot of support :)
+
+很高兴您使用并喜欢该主题，开发不易 十分谢谢与希望您可以保留一下版权声明。
+如果您仍然想删除的话 能否只保留第一项呢？即 "Theme Material"
+它不会影响美观并可以给开发者很大的支持和动力。 :)
+-->
+
+<!-- Sidebar Divider -->
+
+
+<!-- Theme Material -->
+
+
+<!-- Help & Support -->
+<!--
+
+-->
+
+<!-- Feedback -->
+<!--
+
+-->
+
+<!-- About Theme -->
+<!--
+
+-->
+
+    </div>
+
+    <!-- Sidebar Image -->
+    
+
+</aside>
+
+                    
+
+                    
+                        <!-- Footer Top Button -->
+                        <div id="back-to-top" class="toTop-wrap">
+    <a href="#top" class="toTop">
+        <i class="material-icons footer_top-i">expand_less</i>
+    </a>
+</div>
+
+                    
+
+                    <!--Footer-->
+<footer class="mdl-mini-footer" id="bottom">
+    
+        <!-- Paradox Footer Left Section -->
+        <div class="mdl-mini-footer--left-section sns-list">
+    <!-- Twitter -->
+    
+
+    <!-- Facebook -->
+    
+
+    <!-- Google + -->
+    
+
+    <!-- Weibo -->
+    
+
+    <!-- Instagram -->
+    
+
+    <!-- Tumblr -->
+    
+
+    <!-- Github -->
+    
+        <a href="https://github.com/chojd" target="_blank">
+            <button class="mdl-mini-footer--social-btn social-btn footer-sns-github">
+                <span class="visuallyhidden">Github</span>
+            </button><!--
+     --></a>
+    
+
+    <!-- LinkedIn -->
+    
+
+    <!-- Zhihu -->
+    
+
+    <!-- Bilibili -->
+    
+
+    <!-- Telegram -->
+    
+    
+    <!-- V2EX -->
+    
+</div>
+
+
+        <!--Copyright-->
+        <div id="copyright">
+            Copyright&nbsp;©&nbsp;2015&nbsp;-<script type="text/javascript">var fd = new Date();document.write("&nbsp;" + fd.getFullYear() + "&nbsp;");</script>Gene's博客
+            
+        </div>
+
+        <!-- Paradox Footer Right Section -->
+
+        <!--
+        I am glad you use this theme, the development is no so easy, I hope you can keep the copyright.
+        It will not impact the appearance and can give developers a lot of support :)
+
+        很高兴您使用该主题，开发不易，希望您可以保留一下版权声明。
+        它不会影响美观并可以给开发者很大的支持。 :)
+        -->
+
+        <div class="mdl-mini-footer--right-section">
+            <div>
+                <div class="footer-develop-div">Powered by <a href="https://hexo.io" target="_blank" class="footer-develop-a">Hexo</a></div>
+                <div class="footer-develop-div">Theme - <a href="https://github.com/viosey/hexo-theme-material" target="_blank" class="footer-develop-a">Material</a></div>
+            </div>
+        </div>
+    
+</footer>
+
+
+                    <!-- Import JS File -->
+
+    <script>lsloader.load("lazyload_js","/js/lazyload.min.js?1BcfzuNXqV+ntF6gq+5X3Q==", true)</script>
+
+
+
+    <script>lsloader.load("js_js","/js/js.min.js?V/53wGualMuiPM3xoetD5Q==", true)</script>
+
+
+
+    <script>lsloader.load("np_js","/js/nprogress.js?pl3Qhb9lvqR1FlyLUna1Yw==", true)</script>
+
+
+<script type="text/ls-javascript" id="NProgress-script">
+    NProgress.configure({
+        showSpinner: true
+    });
+    NProgress.start();
+    $('#nprogress .bar').css({
+        'background': '#29d'
+    });
+    $('#nprogress .peg').css({
+        'box-shadow': '0 0 10px #29d, 0 0 15px #29d'
+    });
+    $('#nprogress .spinner-icon').css({
+        'border-top-color': '#29d',
+        'border-left-color': '#29d'
+    });
+    setTimeout(function() {
+        NProgress.done();
+        $('.fade').removeClass('out');
+    }, 800);
+</script>
+
+
+
+    
+        <script>lsloader.load("sm_js","/js/smoothscroll.js?lOy/ACj5suSNi7ZVFVbpFQ==", true)</script>
+    
+
+
+
+
+
+
+
+
+
+
+
+<!-- UC Browser Compatible -->
+<script>
+	var agent = navigator.userAgent.toLowerCase();
+	if(agent.indexOf('ucbrowser')>0) {
+		document.write('<link rel="stylesheet" href="/css/uc.css">');
+	   alert('由于 UC 浏览器使用极旧的内核，而本网站使用了一些新的特性。\n为了您能更好的浏览，推荐使用 Chrome 或 Firefox 浏览器。');
+	}
+</script>
+
+<!-- Import prettify js  -->
+
+    
+        
+            <script>lsloader.load("prettify_js","/js/prettify.min.js?WN07fivHQSMKWy7BmHBB6w==", true)</script>
+        
+    
+
+
+    
+        <script>lsloader.load("hanabi","/js/hanabi-browser-bundle.js?Pki5+pzkluqu53g+ouMWpA==", true)</script>
+    
+
+
+<!-- Window Load -->
+<!-- add class for prettify -->
+<script type="text/ls-javascript" id="window-load">
+    $(window).on('load', function() {
+        // Post_Toc parent position fixed
+        $('.post-toc-wrap').parent('.mdl-menu__container').css('position', 'fixed');
+    });
+
+    
+        
+            $(function() {
+                $('pre').addClass('prettyprint linenums').attr('style', 'overflow:auto;');
+                prettyPrint();
+                })
+        
+    
+    
+        
+            HanabiBrowser.clearColors();
+        
+        
+        HanabiBrowser.start('pre code',false);
+    
+</script>
+
+<!-- MathJax Load-->
+
+
+<!-- Bing Background -->
+
+
+<script type="text/ls-javascript" id="lazy-load">
+    // Offer LazyLoad
+    queue.offer(function(){
+        $('.lazy').lazyload({
+            effect : 'show'
+        });
+    });
+
+    // Start Queue
+    $(document).ready(function(){
+        setInterval(function(){
+            queue.execNext();
+        },200);
+    });
+</script>
+
+<!-- Custom Footer -->
+
+
+
+<script>
+    (function(){
+        var scriptList = document.querySelectorAll('script[type="text/ls-javascript"]')
+
+        for (var i = 0; i < scriptList.length; ++i) {
+            var item = scriptList[i];
+            lsloader.runInlineScript(item.id,item.id);
+        }
+    })()
+console.log('\n %c © Material Theme | Version: 1.5.2 | https://github.com/viosey/hexo-theme-material %c \n', 'color:#455a64;background:#e0e0e0;padding:5px 0;border-top-left-radius:5px;border-bottom-left-radius:5px;', 'color:#455a64;background:#e0e0e0;padding:5px 0;border-top-right-radius:5px;border-bottom-right-radius:5px;');
+</script>
+
+                </main>
+            </div>
+        </body>
+    
+</html>
